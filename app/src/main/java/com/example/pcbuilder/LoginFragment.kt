@@ -47,7 +47,6 @@ class LoginFragment : Fragment() {
             startActivity(intent)
         }
 
-
         //initialize to binding
         binding = fragmentBinding
         //create view with inflated fragmentBinding

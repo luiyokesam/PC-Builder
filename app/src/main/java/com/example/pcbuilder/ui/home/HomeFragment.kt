@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.pcbuilder.R
 import com.example.pcbuilder.databinding.FragmentHomeBinding
 
@@ -47,9 +49,7 @@ class HomeFragment : Fragment() {
     fun navigate(choice : Int){
         when(choice){
             1 -> {
-                //if else
-//                findNavController().navigate(R.id.action_dashBoardFragment_to_managerProfileFragment)
-                //findNavController().navigate(R.id.action_dashBoardFragment_to_staffProfileFragment)
+                findNavController().navigate(R.id.action_nav_home_to_stockInFragment)
             }
             2 -> {
                 //room record
@@ -61,16 +61,10 @@ class HomeFragment : Fragment() {
                 //clock in and out
             }
             5 -> {
-                //payment
+                findNavController().navigate(R.id.action_nav_home_to_userProfileFragment)
             }
             6 -> {
                 //housekeeping
-            }
-            7 -> {
-                //check in
-            }
-            8 -> {
-                //staff
             }
         }
     }

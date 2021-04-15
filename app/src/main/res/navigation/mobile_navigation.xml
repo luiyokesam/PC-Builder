@@ -9,7 +9,14 @@
         android:id="@+id/nav_home"
         android:name="com.example.pcbuilder.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_stockInFragment"
+            app:destination="@id/stockInFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -22,4 +29,30 @@
         android:name="com.example.pcbuilder.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/stockInFragment"
+        android:name="com.example.pcbuilder.StockInFragment"
+        android:label="StockInFragment"
+        tools:layout="@layout/fragment_stock_in" >
+        <action
+            android:id="@+id/action_stockInFragment_to_stockInDetailsFragment"
+            app:destination="@id/stockInDetailsFragment" />
+        <action
+            android:id="@+id/action_stockInFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/stockInDetailsFragment"
+        android:name="com.example.pcbuilder.StockInDetailsFragment"
+        android:label="StockInDetailsFragment"
+        tools:layout="@layout/fragment_stock_in_details" />
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.example.pcbuilder.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

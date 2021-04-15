@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PCBuilder">
-        <activity android:name=".RegisterActivity"></activity>
+<!--        <activity android:name=".warehouse.WarehouseActivity"></activity>-->
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.PCBuilder.NoActionBar"></activity>
+            android:theme="@style/Theme.PCBuilder.NoActionBar" />
     </application>
 
 </manifest>

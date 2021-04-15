@@ -16,7 +16,7 @@
 
         <!--suppress Annotator -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnStockIn"
+            android:id="@+id/btn_home_stockin"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginStart="40dp"
@@ -27,13 +27,14 @@
             app:iconGravity="top"
             app:iconSize="70dp"
             app:iconTint="@color/black"
+            android:onClick="@{()-> dashboardFragment.navigate(1)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="40dp" />
 
         <!--suppress Annotator -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnStockOut"
+            android:id="@+id/btn_home_stockout"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginTop="100dp"
@@ -49,7 +50,7 @@
 
         <!--suppress Annotator -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnWarehouse"
+            android:id="@+id/btn_home_warehouse"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginTop="40dp"
@@ -59,12 +60,12 @@
             app:iconGravity="top"
             app:iconSize="70dp"
             app:iconTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/btnStockOut"
-            app:layout_constraintTop_toBottomOf="@+id/btnStockOut" />
+            app:layout_constraintEnd_toEndOf="@+id/btn_home_stockout"
+            app:layout_constraintTop_toBottomOf="@+id/btn_home_stockout" />
 
         <!--suppress Annotator -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnItemList"
+            android:id="@+id/btn_home_itemlist"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginTop="40dp"
@@ -74,12 +75,12 @@
             app:iconGravity="top"
             app:iconSize="70dp"
             app:iconTint="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/btnStockIn"
-            app:layout_constraintTop_toBottomOf="@+id/btnStockIn" />
+            app:layout_constraintStart_toStartOf="@+id/btn_home_stockin"
+            app:layout_constraintTop_toBottomOf="@+id/btn_home_stockin" />
 
         <!--suppress Annotator -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnReport"
+            android:id="@+id/btn_home_report"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginTop="40dp"
@@ -89,12 +90,12 @@
             app:iconGravity="top"
             app:iconSize="70dp"
             app:iconTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/btnWarehouse"
-            app:layout_constraintTop_toBottomOf="@+id/btnWarehouse" />
+            app:layout_constraintEnd_toEndOf="@+id/btn_home_warehouse"
+            app:layout_constraintTop_toBottomOf="@+id/btn_home_warehouse" />
 
         <!--suppress Annotator -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnUser"
+            android:id="@+id/btn_home_user"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginTop="40dp"
@@ -104,8 +105,9 @@
             app:iconGravity="top"
             app:iconSize="70dp"
             app:iconTint="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/btnItemList"
-            app:layout_constraintTop_toBottomOf="@+id/btnItemList" />
+            android:onClick="@{()-> dashboardFragment.navigate(5)}"
+            app:layout_constraintStart_toStartOf="@+id/btn_home_itemlist"
+            app:layout_constraintTop_toBottomOf="@+id/btn_home_itemlist" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
