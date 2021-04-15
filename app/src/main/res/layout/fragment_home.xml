@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DashBoardFragment">
+
+    <data>
+        <variable
+            name="dashboardFragment"
+            type="com.example.pcbuilder.ui.home.HomeFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!--suppress Annotator -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStockIn"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="100dp"
+            android:text="Stock-In"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_pick_list"
+            app:iconGravity="top"
+            app:iconSize="70dp"
+            app:iconTint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="40dp" />
+
+        <!--suppress Annotator -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStockOut"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="40dp"
+            android:text="Stock-Out"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_purchase"
+            app:iconGravity="top"
+            app:iconSize="70dp"
+            app:iconTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--suppress Annotator -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnWarehouse"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="40dp"
+            android:text="Warehouse"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_warehouse"
+            app:iconGravity="top"
+            app:iconSize="70dp"
+            app:iconTint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/btnStockOut"
+            app:layout_constraintTop_toBottomOf="@+id/btnStockOut" />
+
+        <!--suppress Annotator -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnItemList"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="40dp"
+            android:text="Item List"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_item_list"
+            app:iconGravity="top"
+            app:iconSize="70dp"
+            app:iconTint="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/btnStockIn"
+            app:layout_constraintTop_toBottomOf="@+id/btnStockIn" />
+
+        <!--suppress Annotator -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReport"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="40dp"
+            android:text="Report"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_report"
+            app:iconGravity="top"
+            app:iconSize="70dp"
+            app:iconTint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/btnWarehouse"
+            app:layout_constraintTop_toBottomOf="@+id/btnWarehouse" />
+
+        <!--suppress Annotator -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUser"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="40dp"
+            android:text="User"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_supplier"
+            app:iconGravity="top"
+            app:iconSize="70dp"
+            app:iconTint="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/btnItemList"
+            app:layout_constraintTop_toBottomOf="@+id/btnItemList" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
