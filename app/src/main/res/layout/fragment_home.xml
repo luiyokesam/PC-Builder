@@ -12,7 +12,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:background="@drawable/background_test">
 
         <!--suppress Annotator -->
         <com.google.android.material.button.MaterialButton
@@ -80,6 +81,21 @@
 
         <!--suppress Annotator -->
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_home_user"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="40dp"
+            android:onClick="@{()-> dashboardFragment.navigate(5)}"
+            android:text="User"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_supplier"
+            app:iconGravity="top"
+            app:iconSize="70dp"
+            app:iconTint="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/btn_home_itemlist"
+            app:layout_constraintTop_toBottomOf="@+id/btn_home_itemlist" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_home_report"
             android:layout_width="140dp"
             android:layout_height="140dp"
@@ -94,20 +110,6 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_home_warehouse" />
 
         <!--suppress Annotator -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_home_user"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="40dp"
-            android:text="User"
-            app:cornerRadius="20dp"
-            app:icon="@drawable/ic_supplier"
-            app:iconGravity="top"
-            app:iconSize="70dp"
-            app:iconTint="@color/black"
-            android:onClick="@{()-> dashboardFragment.navigate(5)}"
-            app:layout_constraintStart_toStartOf="@+id/btn_home_itemlist"
-            app:layout_constraintTop_toBottomOf="@+id/btn_home_itemlist" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

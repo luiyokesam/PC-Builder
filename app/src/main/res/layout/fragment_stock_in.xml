@@ -12,7 +12,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".StockInFragment">
+        tools:context=".StockInFragment"
+        android:background="@drawable/background_test">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/stock_in_list"
@@ -32,6 +33,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="Search"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,9 +46,10 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
             android:clickable="true"
-            app:backgroundTint="@color/purple_200"
+            app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:rippleColor="@color/white"
             app:srcCompat="@drawable/ic_add_float" />
 
         <EditText
@@ -57,6 +60,7 @@
             android:layout_marginEnd="32dp"
             android:ems="10"
             android:inputType="number"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/textView12"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView12"
