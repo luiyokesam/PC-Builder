@@ -45,36 +45,34 @@ class AddProductFragment : Fragment() {
             }else{
                 getString(R.string.error, it.message)
             }
-
             Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-
         })
 
-        binding.buttonAdd.setOnClickListener {
-            val barcode = binding.editTextBarcode.text.toString().trim()
-            val productName = binding.editTextProductName.text.toString().trim()
-            val companyName = binding.editTextCompanyName.text.toString().trim()
-            val productType = binding.editTextProductType.text.toString().trim()
-            val productPrice = binding.editTextProductPrice.text.toString().trim()
+        binding.btnAddproductAdd.setOnClickListener {
+            val barcode = binding.txtAddproductBarcode.text.toString().trim()
+            val productName = binding.txtAddproductPname.text.toString().trim()
+            val companyName = binding.txtAddproductCname.text.toString().trim()
+            val productType = binding.txtAddproductPtype.text.toString().trim()
+            val productPrice = binding.txtAddproductPprice.text.toString().trim()
 
             if(barcode.isEmpty()){
-                binding.editTextBarcode.error = "This field is required"
+                binding.txtAddproductBarcode.error = "This field is required"
                 return@setOnClickListener
             }
             if(productName.isEmpty()){
-                binding.editTextProductName.error = "This field is required"
+                binding.txtAddproductPname.error = "This field is required"
                 return@setOnClickListener
             }
             if(companyName.isEmpty()){
-                binding.editTextCompanyName.error = "This field is required"
+                binding.txtAddproductCname.error = "This field is required"
                 return@setOnClickListener
             }
             if(productType.isEmpty()){
-                binding.editTextProductType.error = "This field is required"
+                binding.txtAddproductPtype.error = "This field is required"
                 return@setOnClickListener
             }
             if(productPrice.isEmpty()){
-                binding.editTextProductPrice.error = "This field is required"
+                binding.txtAddproductPprice.error = "This field is required"
                 return@setOnClickListener
             }
 
@@ -87,8 +85,5 @@ class AddProductFragment : Fragment() {
 
             viewModel.addProduct(product)
         }
-
     }
-
-
 }

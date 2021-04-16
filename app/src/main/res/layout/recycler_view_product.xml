@@ -13,7 +13,7 @@
     android:background="@drawable/background_recycler">
 
     <TextView
-        android:id="@+id/txt_addproduct_barcode"
+        android:id="@+id/txt_rv_addproduct_barcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
@@ -25,65 +25,65 @@
         tools:text="1XXXXXXXX" />
 
     <TextView
-        android:id="@+id/txt_addproduct_companyname"
+        android:id="@+id/txt_rv_addproduct_companyname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_addproduct_productname"
+        android:layout_below="@+id/txt_rv_addproduct_productname"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-light"
         android:text="ASUS"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/txt_addproduct_barcode"
-        app:layout_constraintTop_toBottomOf="@+id/txt_addproduct_barcode" />
+        app:layout_constraintStart_toStartOf="@+id/txt_rv_addproduct_barcode"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rv_addproduct_barcode" />
 
     <TextView
-        android:id="@+id/txt_addproduct_productname"
+        android:id="@+id/txt_rv_addproduct_productname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_addproduct_barcode"
+        android:layout_below="@+id/txt_rv_addproduct_barcode"
         android:fontFamily="sans-serif-light"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/txt_addproduct_companyname"
+        app:layout_constraintStart_toStartOf="@+id/txt_rv_addproduct_rm"
+        app:layout_constraintTop_toTopOf="@+id/txt_rv_addproduct_companyname"
         tools:text="ASUS Mouse" />
 
     <TextView
-        android:id="@+id/txt_addproduct_producttype"
+        android:id="@+id/txt_rv_addproduct_producttype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_addproduct_companyname"
+        android:layout_below="@+id/txt_rv_addproduct_companyname"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-light"
         android:text="Mouse"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/txt_addproduct_companyname"
-        app:layout_constraintTop_toBottomOf="@+id/txt_addproduct_companyname" />
+        app:layout_constraintStart_toStartOf="@+id/txt_rv_addproduct_companyname"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rv_addproduct_companyname" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txt_rv_addproduct_rm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:text="RM"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/txt_addproduct_producttype"
-        app:layout_constraintTop_toBottomOf="@+id/txt_addproduct_productname" />
+        app:layout_constraintStart_toEndOf="@+id/txt_rv_addproduct_producttype"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rv_addproduct_productname" />
 
     <TextView
-        android:id="@+id/txt_addproduct_productprice"
+        android:id="@+id/txt_rv_addproduct_productprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_addproduct_producttype"
+        android:layout_below="@+id/txt_rv_addproduct_producttype"
         android:layout_marginStart="4dp"
         android:fontFamily="sans-serif-light"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:layout_constraintStart_toEndOf="@+id/txt_rv_addproduct_rm"
+        app:layout_constraintTop_toTopOf="@+id/txt_rv_addproduct_rm"
         tools:text="20.00" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
