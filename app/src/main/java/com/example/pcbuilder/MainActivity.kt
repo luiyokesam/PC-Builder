@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
+    // edit
+
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     private lateinit var navController: NavController
