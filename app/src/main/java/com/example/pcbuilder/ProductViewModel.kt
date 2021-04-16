@@ -50,7 +50,10 @@ class ProductViewModel: ViewModel() {
         }
 
         override fun onChildRemoved(snapshot: DataSnapshot) {
-            TODO("Not yet implemented")
+            val product = snapshot.getValue(Product::class.java)
+            product?.id = snapshot.key
+            product?.isDeleted = true
+            _product.value = product!!
         }
 
         override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
@@ -77,6 +80,18 @@ class ProductViewModel: ViewModel() {
                 }
             }
     }
+
+    fun deleteProduct(product: Product){
+        dbproducts.child(product.id!!).setValue(null)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    _result.value = null
+                }else{
+                    _result.value = it.exception
+                }
+            }
+    }
+
 
     override fun onCleared() {
         super.onCleared()

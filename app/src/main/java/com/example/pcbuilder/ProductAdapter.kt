@@ -29,6 +29,13 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
     fun addProduct(product: Product){
         if (!products.contains(product)){
             products.add(product)
+        }else{
+            val index=products.indexOf(product)
+            if (product.isDeleted){
+                products.removeAt(index)
+            }else{
+                products[index] = product
+            }
         }
         notifyDataSetChanged()
     }
