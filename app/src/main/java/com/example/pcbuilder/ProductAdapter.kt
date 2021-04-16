@@ -15,12 +15,11 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.textViewBarcode.text = products[position].barcode
-        holder.binding.textViewProductName.text = products[position].productName
-        holder.binding.textViewCompanyName.text = products[position].companyName
-        holder.binding.textViewProductType.text = products[position].productType
-        holder.binding.textViewProductPrice.text = products[position].productPrice
-
+        holder.binding.txtAddproductBarcode.text = products[position].barcode
+        holder.binding.txtAddproductCompanyname.text = products[position].companyName
+        holder.binding.txtAddproductProductname.text = products[position].productName
+        holder.binding.txtAddproductProducttype.text = products[position].productType
+        holder.binding.txtAddproductProductprice.text = products[position].productPrice
     }
 
     override fun getItemCount(): Int {

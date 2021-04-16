@@ -51,6 +51,21 @@
 
         <!--suppress Annotator -->
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_home_itemlist"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="40dp"
+            android:onClick="@{()-> homeFragment.navigate(3)}"
+            android:text="Item List"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_item_list"
+            app:iconGravity="top"
+            app:iconSize="70dp"
+            app:iconTint="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/btn_home_stockin"
+            app:layout_constraintTop_toBottomOf="@+id/btn_home_stockin" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_home_warehouse"
             android:layout_width="140dp"
             android:layout_height="140dp"
@@ -65,20 +80,6 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_home_stockout" />
 
         <!--suppress Annotator -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_home_itemlist"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="40dp"
-            android:text="Item List"
-            app:cornerRadius="20dp"
-            app:icon="@drawable/ic_item_list"
-            app:iconGravity="top"
-            app:iconSize="70dp"
-            app:iconTint="@color/black"
-            android:onClick="@{()-> dashboardFragment.navigate(3)}"
-            app:layout_constraintStart_toStartOf="@+id/btn_home_stockin"
-            app:layout_constraintTop_toBottomOf="@+id/btn_home_stockin" />
 
         <!--suppress Annotator -->
         <com.google.android.material.button.MaterialButton
