@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
                 //room record
             }
             3 -> {
-//                findNavController().navigate(R.id.action_dashBoardFragment_to_reservationListFragment)
+                findNavController().navigate(R.id.action_nav_home_to_productFragment)
             }
             4 -> {
                 //clock in and out
