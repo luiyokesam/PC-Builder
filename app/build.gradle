@@ -36,11 +36,14 @@ android {
     }
     buildFeatures {
         dataBinding true // add binding
+        viewBinding true
     }
+
 }
 
 dependencies {
-    def lifecycle_version = "2.2.0"
+    implementation 'com.google.firebase:firebase-database:19.7.0'
+    def lifecycle_version = "2.3.0"
     //lifecycle + view model implementation
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
@@ -84,6 +87,27 @@ dependencies {
 
     // FirebaseUI for Cloud Firestore
     implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
+
+    def lifecycle_versions = "2.3.0"
+    def nav_version = "2.3.4"
+    def recyclerview_version = "1.1.0"
+    def material_version = "1.4.0-alpha01"
+
+// ViewModel
+    implementation "android.arch.lifecycle:extensions:$lifecycle_versions"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_versions"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // recyclerview
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+
+    // material
+    implementation "com.google.android.material:material:$material_version"
+
 }
 // Add the following line to the bottom of the file:
 apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin

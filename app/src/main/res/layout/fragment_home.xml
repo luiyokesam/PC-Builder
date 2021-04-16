@@ -76,6 +76,7 @@
             app:iconGravity="top"
             app:iconSize="70dp"
             app:iconTint="@color/black"
+            android:onClick="@{()-> dashboardFragment.navigate(3)}"
             app:layout_constraintStart_toStartOf="@+id/btn_home_stockin"
             app:layout_constraintTop_toBottomOf="@+id/btn_home_stockin" />
 
