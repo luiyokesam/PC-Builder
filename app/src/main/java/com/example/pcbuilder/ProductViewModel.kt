@@ -11,6 +11,7 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import kotlin.contracts.contract
 
 class ProductViewModel: ViewModel() {
 
@@ -43,7 +44,9 @@ class ProductViewModel: ViewModel() {
         }
 
         override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-            TODO("Not yet implemented")
+            val product = snapshot.getValue(Product::class.java)
+            product?.id = snapshot.key
+            _product.value = product!!
         }
 
         override fun onChildRemoved(snapshot: DataSnapshot) {
@@ -62,6 +65,17 @@ class ProductViewModel: ViewModel() {
 
     fun getRealtimeUpdate(){
         dbproducts.addChildEventListener(childEventListener)
+    }
+
+    fun updateProduct(product: Product){
+        dbproducts.child(product.id!!).setValue(product)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    _result.value = null
+                }else{
+                    _result.value = it.exception
+                }
+            }
     }
 
     override fun onCleared() {
