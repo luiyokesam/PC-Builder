@@ -42,7 +42,9 @@ class StockInDetailsFragment : Fragment() {
     }
 
     private fun minusQuantity(){
-        count--
-        txt_stockin_quantity.setText(" " + count)
+        if(count > 1){
+            count--
+            txt_stockin_quantity.setText(" " + count)
+        }
     }
 }

@@ -1,7 +1,9 @@
 package com.example.pcbuilder
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +17,9 @@ import com.example.pcbuilder.login.LoginViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import com.firebase.ui.auth.IdpResponse
+import com.google.firebase.auth.FirebaseUser
 
 class LoginFragment : Fragment() {
     companion object{
@@ -27,9 +32,12 @@ class LoginFragment : Fragment() {
     private lateinit var navController: NavController
     private lateinit var auth : FirebaseAuth
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+//    public override fun onStart() {
+//        super.onStart()
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        val currentUser = auth.currentUser
+//        updateUI(currentUser)
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,8 +48,10 @@ class LoginFragment : Fragment() {
 
         auth = FirebaseAuth.getInstance()
 
-        fragmentBinding.txtLoginForgotPassword.setOnClickListener{ forgotpassword() }
         fragmentBinding.btnLogin.setOnClickListener { login() }
+        fragmentBinding.txtLoginForgotPassword.setOnClickListener{
+            findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+        }
         fragmentBinding.txtLoginSignUp.setOnClickListener {
             val intent = Intent(context, RegisterActivity::class.java)
             startActivity(intent)
@@ -56,7 +66,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        observeAuthenticationState()
+        observeAuthenticationState()
 
         navController = findNavController()
     }
@@ -98,17 +108,17 @@ class LoginFragment : Fragment() {
             //try {
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if(task.isSuccessful){
+//                    val user = auth.currentUser
+//                    updateUI(user)
                     Toast.makeText(context, "Login successfully!", Toast.LENGTH_SHORT).show()
-
                     val intent = Intent(context, MainActivity::class.java)
                     startActivity(intent)
                 }
                 else{
-                    Toast.makeText(
-                        context,
-                        task.exception!!.message.toString(),
-                        Toast.LENGTH_LONG
-                    ).show()
+                    Toast.makeText(context, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show()
+//                    updateUI(null)
+//                    Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
                 }
                 //}
 
@@ -129,7 +139,8 @@ class LoginFragment : Fragment() {
         }
 
     }
-    //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 //        super.onActivityResult(requestCode, resultCode, data)
 //
 //        if (requestCode == SIGN_IN_RESULT_CODE){
@@ -151,18 +162,34 @@ class LoginFragment : Fragment() {
 //        }
 //    }
 
-//    private fun observeAuthenticationState(){
-//        viewModel.authenticationState.observe(viewLifecycleOwner, Observer { authenticationState ->
-//            when(authenticationState){
-//                LoginViewModel.AuthenticationState.AUTHENTICATED ->{
-//                    val intent = Intent(this.context, MainActivity::class.java)
-//                    startActivity(intent)
-//                }
-//            }
-//        })
-//    }
-
-    private fun forgotpassword(){
-        findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+    private fun observeAuthenticationState(){
+        viewModel.authenticationState.observe(viewLifecycleOwner, Observer { authenticationState ->
+            when(authenticationState){
+                LoginViewModel.AuthenticationState.AUTHENTICATED ->{
+                    val intent = Intent(this.context, MainActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+        })
     }
+
+//    private fun updateUI(currentUser : FirebaseUser?){
+//        if(currentUser != null){
+//            if(currentUser.isEmailVerified){
+//                val intent = Intent(context, MainActivity::class.java)
+//                startActivity(intent)
+////                startActivity(Intent(this, MainActivity::class.java))
+////                finish()
+//            }
+//            else {
+//                Toast.makeText(context, "Please verify your email.",
+//                        Toast.LENGTH_SHORT).show()
+//            }
+//        }
+//        else {
+//            Toast.makeText(context, "Authentication failed.",
+//                Toast.LENGTH_SHORT).show()
+//            updateUI(null)
+//        }
+//    }
 }

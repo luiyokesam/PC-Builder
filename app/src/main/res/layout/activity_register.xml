@@ -29,6 +29,7 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:textColor="@color/white"
+        android:backgroundTint="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
@@ -54,6 +55,7 @@
         android:ems="10"
         android:inputType="textPassword"
         android:textColor="@color/white"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
@@ -79,6 +81,7 @@
         android:ems="10"
         android:inputType="textPassword"
         android:textColor="@color/white"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView18"

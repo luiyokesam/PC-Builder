@@ -3,6 +3,7 @@ package com.example.pcbuilder
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -23,7 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         txtRegisterBack.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }
@@ -31,6 +32,11 @@ class RegisterActivity : AppCompatActivity() {
     fun registerUser(){
         if(txtRegisterEmail.text.toString().isEmpty()){
             txtRegisterEmail.error = "Please enter your email"
+            txtRegisterEmail.requestFocus()
+            return
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(txtRegisterEmail.text.toString()).matches()){
+            txtRegisterEmail.error = "Please enter a valid email"
             txtRegisterEmail.requestFocus()
             return
         }
