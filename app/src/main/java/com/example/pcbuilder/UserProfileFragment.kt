@@ -52,8 +52,8 @@ class UserProfileFragment : Fragment() {
             return
         }
         if(!txt_userprofile_newpassword.text.toString().equals(txt_userprofile_confirmnewpassword.text.toString())){
-            txtRegisterConfirmPassword.error = "Please confirm your password"
-            txtRegisterConfirmPassword.requestFocus()
+            txt_userprofile_confirmnewpassword.error = "Please confirm your password"
+            txt_userprofile_confirmnewpassword.requestFocus()
             return
         }
 

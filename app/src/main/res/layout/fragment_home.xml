@@ -2,11 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".DashBoardFragment">
+    tools:context=".HomeFragment">
 
     <data>
         <variable
-            name="dashboardFragment"
+            name="homeFragment"
             type="com.example.pcbuilder.ui.home.HomeFragment" />
     </data>
 
@@ -28,7 +28,7 @@
             app:iconGravity="top"
             app:iconSize="70dp"
             app:iconTint="@color/black"
-            android:onClick="@{()-> dashboardFragment.navigate(1)}"
+            android:onClick="@{()-> homeFragment.navigate(1)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="40dp" />
@@ -85,7 +85,7 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginTop="40dp"
-            android:onClick="@{()-> dashboardFragment.navigate(5)}"
+            android:onClick="@{()-> homeFragment.navigate(5)}"
             android:text="User"
             app:cornerRadius="20dp"
             app:icon="@drawable/ic_supplier"
