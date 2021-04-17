@@ -11,7 +11,6 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import com.example.pcbuilder.databinding.FragmentLoginBinding
 import com.example.pcbuilder.databinding.FragmentStockInDetailsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.zxing.integration.android.IntentIntegrator
