@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/stockInFragment"
         android:name="com.example.pcbuilder.StockInFragment"
-        android:label="StockInFragment"
+        android:label="Stock-In"
         tools:layout="@layout/fragment_stock_in" >
         <action
             android:id="@+id/action_stockInFragment_to_stockInDetailsFragment"
@@ -47,12 +47,12 @@
     <fragment
         android:id="@+id/stockInDetailsFragment"
         android:name="com.example.pcbuilder.StockInDetailsFragment"
-        android:label="StockInDetailsFragment"
+        android:label="Stock-In Details"
         tools:layout="@layout/fragment_stock_in_details" />
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.example.pcbuilder.UserProfileFragment"
-        android:label="fragment_user_profile"
+        android:label="User Profile"
         tools:layout="@layout/fragment_user_profile" >
         <action
             android:id="@+id/action_userProfileFragment_to_nav_home"
@@ -61,7 +61,7 @@
     <fragment
         android:id="@+id/productFragment"
         android:name="com.example.pcbuilder.ProductFragment"
-        android:label="fragment_product"
+        android:label="Product List"
         tools:layout="@layout/fragment_product" >
         <action
             android:id="@+id/action_productFragment_to_addProductFragment"
@@ -73,7 +73,7 @@
     <fragment
         android:id="@+id/addProductFragment"
         android:name="com.example.pcbuilder.AddProductFragment"
-        android:label="fragment_add_product"
+        android:label="Add Product List"
         tools:layout="@layout/fragment_add_product" >
         <action
             android:id="@+id/action_addProductFragment_to_productFragment"
@@ -82,7 +82,8 @@
     <fragment
         android:id="@+id/updateProductFragment"
         android:name="com.example.pcbuilder.UpdateProductFragment"
-        android:label="UpdateProductFragment" >
+        android:label="Update Product List"
+        tools:layout="@layout/fragment_update_product">
         <action
             android:id="@+id/action_updateProductFragment_to_productFragment"
             app:destination="@id/productFragment" />
