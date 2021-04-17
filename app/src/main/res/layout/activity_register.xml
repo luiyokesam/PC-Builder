@@ -57,7 +57,7 @@
             android:backgroundTint="@color/white"
             android:fontFamily="@font/viga"
             android:hint="Password"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,7 +84,7 @@
             android:backgroundTint="@color/white"
             android:fontFamily="@font/viga"
             android:hint="Confirm Password"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 

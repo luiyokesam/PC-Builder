@@ -73,11 +73,12 @@ class LoginFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        auth.signOut()
         binding = null
     }
 
     private fun login(){
-//        //providers
+//       providers
 //        val providers = arrayListOf(
 //            AuthUI.IdpConfig.EmailBuilder().build()
 ////            , AuthUI.IdpConfig.GoogleBuilder().build()
@@ -104,11 +105,9 @@ class LoginFragment : Fragment() {
             return
         }
         if(email.isNotEmpty() && password.isNotEmpty()){
-            //GlobalScope.launch(Dispatchers.IO) {
-            //try {
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if(task.isSuccessful){
-//                    val user = auth.currentUser
+                    val user = auth.currentUser
 //                    updateUI(user)
                     Toast.makeText(context, "Login successfully!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(context, MainActivity::class.java)
@@ -118,26 +117,9 @@ class LoginFragment : Fragment() {
                     Toast.makeText(context, "Authentication failed.",
                             Toast.LENGTH_SHORT).show()
 //                    updateUI(null)
-//                    Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
                 }
-                //}
-
-//                    withContext(Dispatchers.Main){
-//                        Toast.makeText(context, "You are logged in!", Toast.LENGTH_SHORT).show()
-//
-//                        val intent = Intent(context, MainActivity::class.java)
-//                        startActivity(intent)
-//                    }
-
-//                }catch(e: Exception){
-//                    withContext(Dispatchers.Main){
-//                        //firebase error
-//                        Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show()
-//                    }
-//                }
             }
         }
-
     }
 
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -21,9 +21,6 @@ import com.example.pcbuilder.login.LoginViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
-
-    // edit
-
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     private lateinit var navController: NavController
@@ -49,11 +46,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        //sign out
-//        navButton.setOnClickListener{
-//            signOut()
-//        }
-
         //up button (uncomment after setting up navigation
 //        val navHostFragment = supportFragmentManager
 //                .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -73,15 +65,6 @@ class MainActivity : AppCompatActivity() {
         else {
             supportFragmentManager.popBackStack();
         }
-    }
-
-    private fun signOut(){
-        auth.signOut()
-
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-
-        Toast.makeText(this, "You are logged out!", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
