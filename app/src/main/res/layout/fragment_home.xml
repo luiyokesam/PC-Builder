@@ -76,6 +76,7 @@
             app:iconGravity="top"
             app:iconSize="70dp"
             app:iconTint="@color/black"
+            android:onClick="@{()-> homeFragment.navigate(4)}"
             app:layout_constraintEnd_toEndOf="@+id/btn_home_stockout"
             app:layout_constraintTop_toBottomOf="@+id/btn_home_stockout" />
 

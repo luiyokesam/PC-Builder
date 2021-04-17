@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(R.id.action_nav_home_to_productFragment)
             }
             4 -> {
-                //clock in and out
+                findNavController().navigate(R.id.action_nav_home_to_warehouseFragment)
             }
             5 -> {
                 findNavController().navigate(R.id.action_nav_home_to_userProfileFragment)
