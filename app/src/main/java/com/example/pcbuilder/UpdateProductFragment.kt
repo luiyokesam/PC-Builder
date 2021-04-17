@@ -40,40 +40,39 @@ class UpdateProductFragment(private val product: Product) : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        binding.editTextBarcode.setText(product.barcode)
-        binding.editTextProductName.setText(product.productName)
-        binding.editTextCompanyName.setText(product.companyName)
-        binding.editTextProductType.setText(product.productType)
-        binding.editTextProductPrice.setText(product.productPrice)
+        binding.txtUpdateproductBarcode.setText(product.barcode)
+        binding.txtUpdateproductCname.setText(product.companyName)
+        binding.txtUpdateproductName.setText(product.productName)
+        binding.txtUpdateproductPtype.setText(product.productType)
+        binding.txtUpdateproductPprice.setText(product.productPrice)
 
         binding.buttonUpdate.setOnClickListener {
-            val barcode = binding.editTextBarcode.text.toString().trim()
-            val productName = binding.editTextProductName.text.toString().trim()
-            val companyName = binding.editTextCompanyName.text.toString().trim()
-            val productType = binding.editTextProductType.text.toString().trim()
-            val productPrice = binding.editTextProductPrice.text.toString().trim()
+            val barcode = binding.txtUpdateproductBarcode.text.toString().trim()
+            val companyName = binding.txtUpdateproductCname.text.toString().trim()
+            val productName = binding.txtUpdateproductName.text.toString().trim()
+            val productType = binding.txtUpdateproductPtype.text.toString().trim()
+            val productPrice = binding.txtUpdateproductPprice.text.toString().trim()
 
             if(barcode.isEmpty()){
-                binding.editTextBarcode.error = "This field is required"
+                binding.txtUpdateproductBarcode.error = "This field is required"
                 return@setOnClickListener
             }
             if(productName.isEmpty()){
-                binding.editTextProductName.error = "This field is required"
+                binding.txtUpdateproductCname.error = "This field is required"
                 return@setOnClickListener
             }
             if(companyName.isEmpty()){
-                binding.editTextCompanyName.error = "This field is required"
+                binding.txtUpdateproductName.error = "This field is required"
                 return@setOnClickListener
             }
             if(productType.isEmpty()){
-                binding.editTextProductType.error = "This field is required"
+                binding.txtUpdateproductPtype.error = "This field is required"
                 return@setOnClickListener
             }
             if(productPrice.isEmpty()){
-                binding.editTextProductPrice.error = "This field is required"
+                binding.txtUpdateproductPprice.error = "This field is required"
                 return@setOnClickListener
             }
-
 
             product.barcode = barcode
             product.productName = productName
@@ -82,12 +81,7 @@ class UpdateProductFragment(private val product: Product) : Fragment() {
             product.productPrice = productPrice
 
             viewModel.updateProduct(product)
-
             Toast.makeText(context, "Product has been update", Toast.LENGTH_SHORT).show()
-
         }
-
     }
-
-
 }

@@ -36,8 +36,17 @@ class UserProfileFragment : Fragment() {
         //create view with inflated fragmentBinding
 
         fragmentBinding.btnUserprofileReset.setOnClickListener { resetpassword() }
+        fragmentBinding.btnUserprofileLogout.setOnClickListener { logout(null) }
 
         return fragmentBinding.root
+    }
+
+    private fun logout(currentUser : FirebaseUser?){
+        auth.signOut()
+        val intent = Intent(context, LoginActivity::class.java)
+        startActivity(intent)
+        Toast.makeText(context, "You are logged out!",
+                Toast.LENGTH_SHORT).show()
     }
 
     private fun resetpassword(){

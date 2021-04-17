@@ -36,16 +36,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txt_stockin_code"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="60dp"
+            android:backgroundTint="@color/teal_200"
             android:ems="10"
             android:inputType="textPersonName"
             android:textColor="@color/white"
-            android:backgroundTint="@color/teal_200"
             app:layout_constraintBottom_toBottomOf="@+id/textView8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -151,7 +151,7 @@
             app:layout_constraintStart_toStartOf="@+id/txt_stockin_quantity"
             app:layout_constraintTop_toBottomOf="@+id/txt_stockin_quantity" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_stockin_add"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -159,6 +159,13 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:text="Add"
+            android:textSize="18sp"
+            app:backgroundTint="@android:color/holo_blue_bright"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_stockin_minusqty" />
