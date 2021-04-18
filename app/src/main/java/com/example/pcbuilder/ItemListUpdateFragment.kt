@@ -1,10 +1,8 @@
 package com.example.pcbuilder
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import com.example.pcbuilder.data.Product
@@ -96,6 +94,45 @@ class ItemListUpdateFragment: Fragment() {
         }else{
             withContext(Dispatchers.Main){
                 Toast.makeText(activity, "Please fill out all fields.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_delete){
+            val product = getOldProduct()
+            deleteProduct(product)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteProduct(product: Product) = CoroutineScope(Dispatchers.IO).launch {
+        val productQuery = productCollectionRef
+            .whereEqualTo("productCode", product.productCode)
+            .get()
+            .await()
+
+        if (productQuery.documents.isNotEmpty()){
+            for(document in productQuery) {
+                try{
+                    productCollectionRef.document(document.id).delete().await()
+                    /*personCollectionRef.document(document.id).update(mapOf(
+                        "firstName" to FieldValue.delete()
+                    ))*/
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(activity, "Successfully Delete data", Toast.LENGTH_SHORT).show()
+                        activity?.onBackPressed()
+                    }
+                }
+            }
+        }else{
+            withContext(Dispatchers.Main){
+                Toast.makeText(activity, "No match Data.", Toast.LENGTH_SHORT).show()
             }
         }
     }
