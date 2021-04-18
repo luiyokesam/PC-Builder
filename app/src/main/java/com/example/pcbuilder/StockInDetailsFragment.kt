@@ -1,6 +1,8 @@
 package com.example.pcbuilder
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,10 +12,16 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.pcbuilder.data.Product
 import com.example.pcbuilder.data.StockIn
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.WriterException
 import com.google.zxing.integration.android.IntentIntegrator
+import com.google.zxing.qrcode.QRCodeWriter
 import kotlinx.android.synthetic.main.fragment_stock_in_details.*
 import kotlinx.android.synthetic.main.fragment_stock_in_details.view.*
 import kotlinx.coroutines.CoroutineScope
@@ -21,6 +29,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import java.lang.StringBuilder
 
 class StockInDetailsFragment : Fragment() {
     private var count:Int = 0
@@ -91,6 +100,9 @@ class StockInDetailsFragment : Fragment() {
             intentIntegrator.setPrompt("SCAN")
             intentIntegrator.setBarcodeImageEnabled(false)
             intentIntegrator.initiateScan()
+
+
+
         }
     }
 
@@ -109,7 +121,7 @@ class StockInDetailsFragment : Fragment() {
                     .show()
 
                 txtBarcode.text = result.contents
-                productCollectionRef.get().addOnCompleteListener{
+               /* productCollectionRef.get().addOnCompleteListener{
                         task -> if (task.isSuccessful){
                     for(document in task.result!!){
                         if(document.data["productCode"].toString() == txtBarcode.text){
@@ -120,7 +132,10 @@ class StockInDetailsFragment : Fragment() {
                         }
                     }
                 }
-                }
+                }*/
+
+
+
 
                 Log.d("Fragment", "$result")
             }
