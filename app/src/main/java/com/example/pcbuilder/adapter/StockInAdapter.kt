@@ -3,8 +3,10 @@ package com.example.pcbuilder.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcbuilder.R
+import com.example.pcbuilder.StockInFragmentDirections
 import com.example.pcbuilder.model.StockInModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -23,7 +25,11 @@ class StockInAdapter(options: FirestoreRecyclerOptions<StockInModel>) :
         holder.indate.text = model.inDate
 
         holder.itemView.stockin_rowlayout.setOnClickListener{
-
+//            val action = StockInFragmentDirections.actionItemListFragmentToItemListUpdateFragment(
+            val action = StockInFragmentDirections.actionStockInFragmentToStockTransferFragment(
+                    model.productCode.toString()
+            )
+            holder.itemView.findNavController().navigate(action)
         }
     }
 

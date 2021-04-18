@@ -46,12 +46,19 @@
         <action
             android:id="@+id/action_stockInFragment_to_nav_home"
             app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_stockInFragment_to_stockTransferFragment"
+            app:destination="@id/stockTransferFragment" />
     </fragment>
     <fragment
         android:id="@+id/stockInDetailsFragment"
         android:name="com.example.pcbuilder.StockInDetailsFragment"
         android:label="Stock-In Details"
-        tools:layout="@layout/fragment_stock_in_details" />
+        tools:layout="@layout/fragment_stock_in_details" >
+        <action
+            android:id="@+id/action_stockInDetailsFragment_to_stockInFragment"
+            app:destination="@id/stockInFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.example.pcbuilder.UserProfileFragment"
@@ -69,11 +76,14 @@
         <action
             android:id="@+id/action_warehouseFragment_to_nav_home"
             app:destination="@id/nav_home" />
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/itemListFragment"
         android:name="com.example.pcbuilder.ItemListFragment"
-        android:label="ItemListFragment"
+        android:label="Item List"
         tools:layout="@layout/recyclerview_itemlist">
         <action
             android:id="@+id/action_itemListFragment_to_itemListAddFragment"
@@ -88,7 +98,7 @@
     <fragment
         android:id="@+id/itemListAddFragment"
         android:name="com.example.pcbuilder.ItemListAddFragment"
-        android:label="fragment_item_list_add"
+        android:label="Add Item List"
         tools:layout="@layout/fragment_item_list_add" >
         <action
             android:id="@+id/action_itemListAddFragment_to_itemListFragment"
@@ -97,11 +107,26 @@
     <fragment
         android:id="@+id/itemListUpdateFragment"
         android:name="com.example.pcbuilder.ItemListUpdateFragment"
-        android:label="fragment_item_list_update"
+        android:label="Update Item List"
         tools:layout="@layout/fragment_item_list_update" >
         <action
             android:id="@+id/action_itemListUpdateFragment_to_itemListFragment"
             app:destination="@id/itemListFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/stockTransferFragment"
+        android:name="com.example.pcbuilder.StockTransferFragment"
+        android:label="Stock Transfer"
+        tools:layout="@layout/fragment_stock_transfer" >
+        <action
+            android:id="@+id/action_stockTransferFragment_to_stockInFragment"
+            app:destination="@id/stockInFragment" />
+        <action
+            android:id="@+id/action_stockTransferFragment_to_warehouseFragment"
+            app:destination="@id/warehouseFragment" />
         <argument
             android:name="id"
             app:argType="string" />
