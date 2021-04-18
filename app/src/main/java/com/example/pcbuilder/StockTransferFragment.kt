@@ -33,12 +33,11 @@ class StockTransferFragment : Fragment() {
         view.btn_stockin_transfer_transfer.setOnClickListener {
             val transrackid = txt_stockin_transfer_rackid.text.toString()
             val transbarcode = txt_stockin_transfer_barcode.text.toString()
+            val transindate = txt_stockin_transfer_date.text.toString()
             val transquantity = txt_stockin_transfer_quantity.text.toString().toInt()
-            val transindate = txt_stockin_date.text.toString()
             val warehouse = Warehouse(transrackid, transbarcode, transquantity, transindate)
             saveStockTransfer(warehouse)
         }
-
         return view
     }
 
