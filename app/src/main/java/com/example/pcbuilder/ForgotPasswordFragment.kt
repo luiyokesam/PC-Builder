@@ -19,8 +19,8 @@ class ForgotPasswordFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentForgotPasswordBinding.inflate(inflater, container, false)
@@ -45,30 +45,30 @@ class ForgotPasswordFragment : Fragment() {
         val email = txtForgotEmail.text.toString().trim{ it <= ' '}
         if(email.isEmpty()){
             Toast.makeText(
-                context,
-                "Please enter email address",
-                Toast.LENGTH_SHORT
+                    context,
+                    "Please enter email address",
+                    Toast.LENGTH_SHORT
             ).show()
         }else{
             FirebaseAuth.getInstance().sendPasswordResetEmail(email)
-                .addOnCompleteListener { task ->
-                    if(task.isSuccessful){
-                        Toast.makeText(
-                            context,
-                            "Please check your email to reset your password!",
-                            Toast.LENGTH_LONG
-                        ).show()
+                    .addOnCompleteListener { task ->
+                        if(task.isSuccessful){
+                            Toast.makeText(
+                                    context,
+                                    "Please check your email to reset your password!",
+                                    Toast.LENGTH_LONG
+                            ).show()
 
-                        findNavController().navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
+                            findNavController().navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
+                        }
+                        else{
+                            Toast.makeText(
+                                    context,
+                                    task.exception!!.message.toString(),
+                                    Toast.LENGTH_LONG
+                            ).show()
+                        }
                     }
-                    else{
-                        Toast.makeText(
-                            context,
-                            task.exception!!.message.toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                }
         }
     }
 }

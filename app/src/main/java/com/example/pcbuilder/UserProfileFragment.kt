@@ -2,18 +2,16 @@ package com.example.pcbuilder
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.pcbuilder.databinding.FragmentLoginBinding
 import com.example.pcbuilder.databinding.FragmentUserProfileBinding
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.fragment_user_profile.*
 
 class UserProfileFragment : Fragment() {
@@ -77,23 +75,23 @@ class UserProfileFragment : Fragment() {
             user.reauthenticate(credential).addOnCompleteListener {
                 if(it.isSuccessful){
                     Toast.makeText(context, "Re-Authentication succeeded.",
-                        Toast.LENGTH_SHORT).show()
+                            Toast.LENGTH_SHORT).show()
 
                     user!!.updatePassword(txt_userprofile_oldpassword.text.toString())
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                Toast.makeText(context, "Password Changed Successfully",
-                                    Toast.LENGTH_SHORT).show()
-                                auth.signOut()
-                                view?.findNavController()?.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    Toast.makeText(context, "Password Changed Successfully",
+                                            Toast.LENGTH_SHORT).show()
+                                    auth.signOut()
+                                    view?.findNavController()?.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
 //                                startActivity(Intent(this, LoginActivity::class.java))
 //                                finish()
+                                }
                             }
-                        }
                 }
                 else{
                     Toast.makeText(context, "Re-Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                            Toast.LENGTH_SHORT).show()
                 }
             }
         }
