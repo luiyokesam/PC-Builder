@@ -79,6 +79,9 @@
         <argument
             android:name="id"
             app:argType="string" />
+        <action
+            android:id="@+id/action_warehouseFragment_to_warehouseRackFragment"
+            app:destination="@id/warehouseRackFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemListFragment"
@@ -130,5 +133,14 @@
         <argument
             android:name="id"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/warehouseRackFragment"
+        android:name="com.example.pcbuilder.WarehouseRackFragment"
+        android:label="Warehouse Rack"
+        tools:layout="@layout/fragment_warehouse_rack">
+        <action
+            android:id="@+id/action_warehouseRackFragment_to_warehouseFragment"
+            app:destination="@id/warehouseFragment" />
     </fragment>
 </navigation>

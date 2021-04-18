@@ -7,14 +7,10 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcbuilder.R
 import com.example.pcbuilder.StockTransferFragmentDirections
-import com.example.pcbuilder.WarehouseFragmentDirections
 import com.example.pcbuilder.model.WarehouseModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import kotlinx.android.synthetic.main.recyclerview_stockin.view.*
 import kotlinx.android.synthetic.main.recyclerview_warehouse.view.*
-
-//FirestoreRecyclerAdapter<WarehouseModel, WarehouseAdapter.StockInAdapterVH>(options) {
 
 class WarehouseAdapter(options: FirestoreRecyclerOptions<WarehouseModel>) :
         FirestoreRecyclerAdapter<WarehouseModel, WarehouseAdapter.WarehouseAdapterVH>(options) {
