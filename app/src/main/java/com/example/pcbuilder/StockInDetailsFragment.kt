@@ -3,43 +3,62 @@ package com.example.pcbuilder
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import com.example.pcbuilder.databinding.FragmentStockInDetailsBinding
-import com.google.firebase.auth.FirebaseAuth
+import androidx.fragment.app.Fragment
+import com.example.pcbuilder.data.StockIn
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.fragment_stock_in_details.*
+import kotlinx.android.synthetic.main.fragment_stock_in_details.view.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class StockInDetailsFragment : Fragment() {
     private var count:Int = 0
-    private lateinit var auth : FirebaseAuth
-    private var binding: FragmentStockInDetailsBinding? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private val productCollectionRef = Firebase.firestore.collection("stockin")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //save inflated view to fragmentBinding
-        val fragmentBinding = FragmentStockInDetailsBinding.inflate(inflater, container, false)
-        auth = FirebaseAuth.getInstance()
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_stock_in_details, container, false)
 
-        fragmentBinding.btnStockinAddqty.setOnClickListener{ addQuantity() }
-        fragmentBinding.btnStockinMinusqty.setOnClickListener{ minusQuantity() }
+        view.btn_stockin_addqty.setOnClickListener{ addQuantity() }
+        view.btn_stockin_minusqty.setOnClickListener{ minusQuantity() }
 
-        //initialize to binding
-        binding = fragmentBinding
-        //create view with inflated fragmentBinding
-        return fragmentBinding.root
+        view.btn_stockin_add.setOnClickListener {
+            val inbarcode = txt_stockin_code.text.toString()
+            val inquantity = txt_stockin_quantity.text.toString().toInt()
+            val indate = txt_stockin_date.text.toString()
+            val product = StockIn(inbarcode, inquantity, indate)
+            saveProduct(product)
+        }
+
+        return view
+    }
+
+    private fun saveProduct(stockin: StockIn) = CoroutineScope(Dispatchers.IO).launch {
+        try{
+            productCollectionRef.add(stockin).await()
+            withContext(Dispatchers.Main) {
+                Toast.makeText(activity, "Successfully save data", Toast.LENGTH_SHORT).show()
+                activity?.onBackPressed()
+            }
+        } catch (e: Exception) {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(activity, "Please fill out all fields.", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun addQuantity(){
