@@ -74,18 +74,16 @@ class UserProfileFragment : Fragment() {
             // Prompt the user to re-provide their sign-in credentials
             user.reauthenticate(credential).addOnCompleteListener {
                 if(it.isSuccessful){
-                    Toast.makeText(context, "Re-Authentication succeeded.",
-                            Toast.LENGTH_SHORT).show()
-
-                    user!!.updatePassword(txt_userprofile_oldpassword.text.toString())
+                    Toast.makeText(context, "Re-Authentication succeeded.", Toast.LENGTH_SHORT).show()
+                    user!!.updatePassword(txt_userprofile_newpassword.text.toString())
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     Toast.makeText(context, "Password Changed Successfully",
                                             Toast.LENGTH_SHORT).show()
                                     auth.signOut()
-                                    view?.findNavController()?.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
-//                                startActivity(Intent(this, LoginActivity::class.java))
-//                                finish()
+//                                    view?.findNavController()?.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
+                                    val intent = Intent(context, LoginActivity::class.java)
+                                    startActivity(intent)
                                 }
                             }
                 }
@@ -95,10 +93,10 @@ class UserProfileFragment : Fragment() {
                 }
             }
         }
-        else {
-            view?.findNavController()?.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
+//        else {
+//            view?.findNavController()?.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
 //            startActivity(Intent(this, MainActivity::class.java))
 //            finish()
-        }
+//        }
     }
 }

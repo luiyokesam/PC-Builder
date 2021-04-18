@@ -53,24 +53,25 @@ class LoginFragment : Fragment() {
         //initialize to binding
         binding = fragmentBinding
         //create view with inflated fragmentBinding
+        auth.signOut()
         return fragmentBinding.root
     }
 
-    private fun forgotPassword(useremail : EditText){
-        if(useremail.text.toString().isEmpty()){
-            return
-        }
-        if(!Patterns.EMAIL_ADDRESS.matcher(useremail.text.toString()).matches()){
-            return
-        }
-
-        auth.sendPasswordResetEmail(useremail.text.toString()).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Toast.makeText(context, "Email sent.",
-                        Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
+//    private fun forgotPassword(useremail : EditText){
+//        if(useremail.text.toString().isEmpty()){
+//            return
+//        }
+//        if(!Patterns.EMAIL_ADDRESS.matcher(useremail.text.toString()).matches()){
+//            return
+//        }
+//
+//        auth.sendPasswordResetEmail(useremail.text.toString()).addOnCompleteListener { task ->
+//            if (task.isSuccessful) {
+//                Toast.makeText(context, "Email sent.",
+//                        Toast.LENGTH_SHORT).show()
+//            }
+//        }
+//    }
 
     public override fun onStart() {
         super.onStart()

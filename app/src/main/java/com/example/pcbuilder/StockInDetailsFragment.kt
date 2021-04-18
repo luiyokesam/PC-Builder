@@ -1,7 +1,6 @@
 package com.example.pcbuilder
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,12 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.pcbuilder.data.StockIn
-import com.example.pcbuilder.databinding.FragmentStockInDetailsBinding
-import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.zxing.integration.android.IntentIntegrator
@@ -26,41 +21,28 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import java.time.LocalDateTime
 
-class StockInDetailsFragment(action: Boolean, id: String?) : Fragment() {
+class StockInDetailsFragment : Fragment() {
+    private var count:Int = 0
     private val stockinCollectionRef = Firebase.firestore.collection("stockin")
-    private val new = action
-    private val itemid = id
-    private var newId: Int = 0
-    @RequiresApi(Build.VERSION_CODES.O)
-    private val currentDateTime = LocalDateTime.now()
-    @RequiresApi(Build.VERSION_CODES.O)
-
-    private var qty:Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding: FragmentStockInDetailsBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_stock_in_details, container,false)
+        val view = inflater.inflate(R.layout.fragment_stock_in_details, container, false)
 
-        binding.btnStockinAddqty.setOnClickListener{ addQuantity() }
-        binding.btnStockinMinusqty.setOnClickListener{ minusQuantity() }
+        view.btn_stockin_addqty.setOnClickListener{ addQuantity() }
+        view.btn_stockin_minusqty.setOnClickListener{ minusQuantity() }
 
-//        if(new){
-//            setEditable(true, binding)
-//            binding.btnItemDetailEdit.text = "Add"
-//            itemCollectionRef.orderBy("itemId", Query.Direction.DESCENDING).limit(1)
-//            itemCollectionRef.get().addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    for (document in task.result!!) {
-//                        binding.txtItemId.text = (document.data["itemId"].toString().toInt() + 1).toString()
-//                        newId = document.data["itemId"].toString().toInt() + 1
-//                    }
-//                }
-//            }
+        view.btn_stockin_add.setOnClickListener {
+            val inbarcode = txt_stockin_code.text.toString()
+            val inquantity = txt_stockin_quantity.text.toString().toInt()
+            val indate = txt_stockin_date.text.toString()
+            val stockin = StockIn(inbarcode, inquantity, indate)
+            saveStockIn(stockin)
+        }
 
         return view
     }
@@ -79,15 +61,15 @@ class StockInDetailsFragment(action: Boolean, id: String?) : Fragment() {
         }
     }
 
-    fun addQuantity(){
-        qty++
-        txt_stockin_quantity.setText(" " + qty)
+    private fun addQuantity(){
+        count++
+        txt_stockin_quantity.setText(" " + count)
     }
 
-    fun minusQuantity(){
-        if(qty > 1){
-            qty--
-            txt_stockin_quantity.setText(" " + qty)
+    private fun minusQuantity(){
+        if(count > 1){
+            count--
+            txt_stockin_quantity.setText(" " + count)
         }
     }
 

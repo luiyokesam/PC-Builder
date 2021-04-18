@@ -3,12 +3,10 @@ package com.example.pcbuilder.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcbuilder.ItemListFragmentDirections
 import com.example.pcbuilder.R
-import com.example.pcbuilder.data.Product
 import com.example.pcbuilder.model.ItemLIstModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -23,7 +21,6 @@ class ItemListAdapter(options: FirestoreRecyclerOptions<ItemLIstModel>) :
     }
 
     override fun onBindViewHolder(holder: ItemListAdapterVH, position: Int, model: ItemLIstModel) {
-
         holder.pro_Code.text = model.productCode
         holder.pro_Name.text = model.productName
         holder.pro_Company.text = model.productCompany
@@ -31,20 +28,19 @@ class ItemListAdapter(options: FirestoreRecyclerOptions<ItemLIstModel>) :
         holder.pro_Price.text = model.productPrice.toString()
 
         holder.itemView.list_item_row.setOnClickListener{
-            val action = ItemListFragmentDirections.actionItemListFragmentToItemListUpdateFragment()
+            val action = ItemListFragmentDirections.actionItemListFragmentToItemListUpdateFragment(
+                model.productCode.toString()
+            )
             holder.itemView.findNavController().navigate(action)
         }
     }
 
     class ItemListAdapterVH(itemView: View): RecyclerView.ViewHolder(itemView) {
-
         var pro_Code = itemView.txt_rv_addproduct_barcode
         var pro_Name = itemView.txt_rv_addproduct_productname
         var pro_Company = itemView.txt_rv_addproduct_companyname
         var pro_Type = itemView.txt_rv_addproduct_producttype
         var pro_Price = itemView.txt_rv_addproduct_productprice
     }
-
-
 }
 

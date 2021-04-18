@@ -60,7 +60,7 @@
                 android:backgroundTint="@color/teal_200"
                 android:fontFamily="@font/viga"
                 android:hint="Old password"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,7 +87,7 @@
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/viga"
                 android:hint="New Password"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,7 +114,7 @@
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/viga"
                 android:hint="Confirm New Password"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
