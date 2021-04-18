@@ -24,7 +24,7 @@ import kotlinx.coroutines.withContext
 
 class StockInDetailsFragment : Fragment() {
     private var count:Int = 0
-    private val productCollectionRef = Firebase.firestore.collection("stockin")
+    private val stockinCollectionRef = Firebase.firestore.collection("stockin")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,16 +40,16 @@ class StockInDetailsFragment : Fragment() {
             val inbarcode = txt_stockin_code.text.toString()
             val inquantity = txt_stockin_quantity.text.toString().toInt()
             val indate = txt_stockin_date.text.toString()
-            val product = StockIn(inbarcode, inquantity, indate)
-            saveProduct(product)
+            val stockin = StockIn(inbarcode, inquantity, indate)
+            saveStockIn(stockin)
         }
 
         return view
     }
 
-    private fun saveProduct(stockin: StockIn) = CoroutineScope(Dispatchers.IO).launch {
+    private fun saveStockIn(stockin: StockIn) = CoroutineScope(Dispatchers.IO).launch {
         try{
-            productCollectionRef.add(stockin).await()
+            stockinCollectionRef.add(stockin).await()
             withContext(Dispatchers.Main) {
                 Toast.makeText(activity, "Successfully save data", Toast.LENGTH_SHORT).show()
                 activity?.onBackPressed()

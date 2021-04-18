@@ -32,5 +32,4 @@ class StockInAdapter(options: FirestoreRecyclerOptions<StockInModel>) :
         var inquantity = itemView.txt_rv_stockin_quantity
         var indate = itemView.txt_rv_stockin_date
     }
-
 }
