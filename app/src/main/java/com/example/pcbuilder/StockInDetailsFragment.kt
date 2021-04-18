@@ -25,6 +25,7 @@ import kotlinx.coroutines.withContext
 class StockInDetailsFragment : Fragment() {
     private var count:Int = 0
     private val stockinCollectionRef = Firebase.firestore.collection("stockin")
+    private val productCollectionRef = Firebase.firestore.collection("products")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -108,6 +109,18 @@ class StockInDetailsFragment : Fragment() {
                     .show()
 
                 txtBarcode.text = result.contents
+                productCollectionRef.get().addOnCompleteListener{
+                    task -> if (task.isSuccessful){
+                        for(document in task.result!!){
+                            if(document.data["productCode"].toString() == txtBarcode.text){
+                                txt_stockin_cname.setText(document.data["productCompany"].toString())
+                                txt_stockin_pname.setText(document.data["productName"].toString())
+                                txt_stockin_ptype.setText(document.data["productType"].toString())
+                                txt_stockin_pprice.setText(document.data["productPrice"].toString())
+                            }
+                        }
+                    }
+                }
 
                 Log.d("Fragment", "$result")
             }
