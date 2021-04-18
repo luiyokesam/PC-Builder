@@ -118,7 +118,8 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
 
     //Pass recyclerview data
-    implementation "androidx.navigation:navigation-dynamic-features-fragmnet:$nav_version"
+//    implementation "androidx.navigation:navigation-dynamic-features-fragmnet:$nav_version"
+//    implementation "androidx.navigation:navigation-dynamic-features-fragmnet:2.3.4"
 
 }
 // Add the following line to the bottom of the file:

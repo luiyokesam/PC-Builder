@@ -1,25 +1,22 @@
 package com.example.pcbuilder
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcbuilder.adapter.StockInAdapter
-import com.example.pcbuilder.databinding.FragmentLoginBinding
-import com.example.pcbuilder.databinding.FragmentStockInBinding
 import com.example.pcbuilder.model.StockInModel
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_stock_in.view.*
+import kotlinx.android.synthetic.main.fragment_stock_transfer.view.*
 
 class StockInFragment : Fragment() {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance();

@@ -28,13 +28,13 @@ class WarehouseAdapter(options: FirestoreRecyclerOptions<WarehouseModel>) :
         holder.transquantity.text = model.inQuantity.toString()
         holder.transdate.text = model.inDate
 
-        holder.itemView.warehouse_rowlayout.setOnClickListener{
-//            val action = StockInFragmentDirections.actionItemListFragmentToItemListUpdateFragment(
-            val action = StockTransferFragmentDirections.actionStockTransferFragmentToWarehouseFragment(
-                model.rackid.toString()
-            )
-            holder.itemView.findNavController().navigate(action)
-        }
+//        holder.itemView.warehouse_rowlayout.setOnClickListener{
+////            val action = StockInFragmentDirections.actionItemListFragmentToItemListUpdateFragment(
+//            val action = StockTransferFragmentDirections.actionStockTransferFragmentToWarehouseFragment(
+//                model.rackid.toString()
+//            )
+//            holder.itemView.findNavController().navigate(action)
+//        }
     }
 
     class WarehouseAdapterVH(itemView: View) : RecyclerView.ViewHolder(itemView) {

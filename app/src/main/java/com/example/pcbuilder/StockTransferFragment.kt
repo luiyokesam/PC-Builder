@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.navArgs
 import com.example.pcbuilder.data.StockIn
 import com.example.pcbuilder.data.Warehouse
 import com.google.firebase.firestore.ktx.firestore
@@ -22,6 +23,7 @@ import kotlinx.coroutines.withContext
 
 class StockTransferFragment : Fragment() {
     private val warehouseCollectionRef = Firebase.firestore.collection("warehouse")
+    private val args by navArgs<StockTransferFragmentArgs>()
 //    private val stockinCollectionRef = Firebase.firestore.collection("stockin")
 //    private val productCollectionRef = Firebase.firestore.collection("products")
 
@@ -34,10 +36,15 @@ class StockTransferFragment : Fragment() {
             val transrackid = txt_stockin_transfer_rackid.text.toString()
             val transbarcode = txt_stockin_transfer_barcode.text.toString()
             val transindate = txt_stockin_transfer_date.text.toString()
-            val transquantity = txt_stockin_transfer_quantity.text.toString().toInt()
+            val transquantity = txt_stockin_transfer_quantity.text.toString()
             val warehouse = Warehouse(transrackid, transbarcode, transquantity, transindate)
             saveStockTransfer(warehouse)
         }
+
+        view.txt_stockin_transfer_barcode.setText(args.currentStockIn.productCode)
+        view.txt_stockin_transfer_date.setText(args.currentStockIn.inQuantity)
+        view.txt_stockin_transfer_quantity.setText(args.currentStockIn.inQuantity)
+
         return view
     }
 

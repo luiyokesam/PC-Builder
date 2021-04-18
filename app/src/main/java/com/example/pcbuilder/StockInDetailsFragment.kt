@@ -48,7 +48,7 @@ class StockInDetailsFragment : Fragment() {
 
         view.btn_stockin_add.setOnClickListener {
             val inbarcode = txt_stockin_code.text.toString()
-            val inquantity = txt_stockin_quantity.text.toString().toInt()
+            val inquantity = txt_stockin_quantity.text.toString()
             val indate = txt_stockin_date.text.toString()
             val stockin = StockIn(inbarcode, inquantity, indate)
             saveStockIn(stockin)
@@ -121,22 +121,18 @@ class StockInDetailsFragment : Fragment() {
                     .show()
 
                 txtBarcode.text = result.contents
-               /* productCollectionRef.get().addOnCompleteListener{
-                        task -> if (task.isSuccessful){
-                    for(document in task.result!!){
-                        if(document.data["productCode"].toString() == txtBarcode.text){
-                            txt_stockin_cname.setText(document.data["productCompany"].toString())
-                            txt_stockin_pname.setText(document.data["productName"].toString())
-                            txt_stockin_ptype.setText(document.data["productType"].toString())
-                            txt_stockin_pprice.setText(document.data["productPrice"].toString())
+                    productCollectionRef.get().addOnCompleteListener{
+                            task -> if (task.isSuccessful){
+                        for(document in task.result!!){
+                            if(document.data["productCode"].toString() == txtBarcode.text.toString()){
+                                txt_stockin_cname.setText(document.data["productCompany"].toString())
+                                txt_stockin_pname.setText(document.data["productName"].toString())
+                                txt_stockin_ptype.setText(document.data["productType"].toString())
+                                txt_stockin_pprice.setText(document.data["productPrice"].toString())
+                            }
                         }
                     }
                 }
-                }*/
-
-
-
-
                 Log.d("Fragment", "$result")
             }
         } else {

@@ -76,9 +76,6 @@
         <action
             android:id="@+id/action_warehouseFragment_to_nav_home"
             app:destination="@id/nav_home" />
-        <argument
-            android:name="id"
-            app:argType="string" />
         <action
             android:id="@+id/action_warehouseFragment_to_warehouseRackFragment"
             app:destination="@id/warehouseRackFragment" />
@@ -131,8 +128,8 @@
             android:id="@+id/action_stockTransferFragment_to_warehouseFragment"
             app:destination="@id/warehouseFragment" />
         <argument
-            android:name="id"
-            app:argType="string" />
+            android:name="currentStockIn"
+            app:argType="com.example.pcbuilder.data.StockIn" />
     </fragment>
     <fragment
         android:id="@+id/warehouseRackFragment"

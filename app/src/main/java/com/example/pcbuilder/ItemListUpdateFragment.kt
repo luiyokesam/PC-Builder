@@ -2,14 +2,13 @@ package com.example.pcbuilder
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.pcbuilder.data.Product
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_item_list_add.view.*
 import kotlinx.android.synthetic.main.fragment_item_list_update.*
 import kotlinx.android.synthetic.main.fragment_item_list_update.view.*
 import kotlinx.coroutines.CoroutineScope
