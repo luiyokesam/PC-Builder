@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "478159440807",
-    "project_id": "pc-builder-80e48",
-    "storage_bucket": "pc-builder-80e48.appspot.com"
+    "project_number": "879853760697",
+    "project_id": "pc-builder-e2d88",
+    "storage_bucket": "pc-builder-e2d88.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:478159440807:android:857eb562c4721804e48482",
+        "mobilesdk_app_id": "1:879853760697:android:1e3405fa71f452a92b6b68",
         "android_client_info": {
           "package_name": "com.example.pcbuilder"
         }
       },
       "oauth_client": [
         {
-          "client_id": "478159440807-h3v11e3nb61s6l727nprjtaordq2vols.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.pcbuilder",
-            "certificate_hash": "1ad5bcec8535bf5bcb79d51296808500623e55cf"
-          }
-        },
-        {
-          "client_id": "478159440807-3jatuc087p1f07sb7n2snink83todvqh.apps.googleusercontent.com",
+          "client_id": "879853760697-fe7qc645kjilek6vtg1ag2tmm8qlhj0g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDYTxwnd7LN6lU4tKtF8IN4kgQUUtXyFZY"
+          "current_key": "AIzaSyBiivwkjmVaj0bdghGhWUxwudAvxrvIRG8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "478159440807-3jatuc087p1f07sb7n2snink83todvqh.apps.googleusercontent.com",
+              "client_id": "879853760697-fe7qc645kjilek6vtg1ag2tmm8qlhj0g.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
