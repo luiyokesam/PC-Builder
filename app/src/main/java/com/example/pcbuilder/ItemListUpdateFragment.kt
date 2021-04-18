@@ -36,6 +36,7 @@ class ItemListUpdateFragment: Fragment() {
             updateProduct(oldPerson, newPersonMap)
         }
 
+        setHasOptionsMenu(true)
         return view
     }
 
@@ -120,23 +121,22 @@ class ItemListUpdateFragment: Fragment() {
             for(document in productQuery) {
                 try{
                     productCollectionRef.document(document.id).delete().await()
+                    Toast.makeText(activity, "Data delete failed", Toast.LENGTH_SHORT).show()
                     /*personCollectionRef.document(document.id).update(mapOf(
                         "firstName" to FieldValue.delete()
                     ))*/
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(activity, "Successfully Delete data", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Data deleted", Toast.LENGTH_SHORT).show()
                         activity?.onBackPressed()
                     }
                 }
             }
-        }else{
+        }
+        else {
             withContext(Dispatchers.Main){
-                Toast.makeText(activity, "No match Data.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "No data found", Toast.LENGTH_SHORT).show()
             }
         }
     }
-
-
-
 }
