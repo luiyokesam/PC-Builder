@@ -110,16 +110,16 @@ class StockInDetailsFragment : Fragment() {
 
                 txtBarcode.text = result.contents
                 productCollectionRef.get().addOnCompleteListener{
-                    task -> if (task.isSuccessful){
-                        for(document in task.result!!){
-                            if(document.data["productCode"].toString() == txtBarcode.text){
-                                txt_stockin_cname.setText(document.data["productCompany"].toString())
-                                txt_stockin_pname.setText(document.data["productName"].toString())
-                                txt_stockin_ptype.setText(document.data["productType"].toString())
-                                txt_stockin_pprice.setText(document.data["productPrice"].toString())
-                            }
+                        task -> if (task.isSuccessful){
+                    for(document in task.result!!){
+                        if(document.data["productCode"].toString() == txtBarcode.text){
+                            txt_stockin_cname.setText(document.data["productCompany"].toString())
+                            txt_stockin_pname.setText(document.data["productName"].toString())
+                            txt_stockin_ptype.setText(document.data["productType"].toString())
+                            txt_stockin_pprice.setText(document.data["productPrice"].toString())
                         }
                     }
+                }
                 }
 
                 Log.d("Fragment", "$result")
