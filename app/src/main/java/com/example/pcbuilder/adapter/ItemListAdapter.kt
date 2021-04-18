@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcbuilder.ItemListFragmentDirections
 import com.example.pcbuilder.R
+import com.example.pcbuilder.data.Product
 import com.example.pcbuilder.model.ItemLIstModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -28,9 +29,8 @@ class ItemListAdapter(options: FirestoreRecyclerOptions<ItemLIstModel>) :
         holder.pro_Price.text = model.productPrice.toString()
 
         holder.itemView.list_item_row.setOnClickListener{
-            val action = ItemListFragmentDirections.actionItemListFragmentToItemListUpdateFragment(
-                model.productCode.toString()
-            )
+            val currentprod = Product(holder.pro_Code.text as String, holder.pro_Name.text as String, holder.pro_Company.text as String, holder.pro_Type.text as String, holder.pro_Price.text as String)
+            val action = ItemListFragmentDirections.actionItemListFragmentToItemListUpdateFragment(currentprod)
             holder.itemView.findNavController().navigate(action)
         }
     }

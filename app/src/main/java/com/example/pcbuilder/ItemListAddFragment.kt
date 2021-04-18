@@ -35,7 +35,7 @@ class ItemListAddFragment : Fragment() {
             val pName = txt_addproduct_pname.text.toString()
             val pCompany = txt_addproduct_cname.text.toString()
             val pType = txt_addproduct_ptype.text.toString()
-            val pPrice = txt_addproduct_pprice.text.toString().toDouble()
+            val pPrice = txt_addproduct_pprice.text.toString()
             val product = Product(pCode, pName, pCompany, pType, pPrice)
             saveProduct(product)
         }

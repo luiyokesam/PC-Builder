@@ -20,8 +20,8 @@ import kotlinx.coroutines.withContext
 
 
 class ItemListUpdateFragment: Fragment() {
-
     private val productCollectionRef = Firebase.firestore.collection("products")
+    private val args by navArgs<ItemListUpdateFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +35,12 @@ class ItemListUpdateFragment: Fragment() {
             val newPersonMap = getNewProductMap()
             updateProduct(oldPerson, newPersonMap)
         }
+
+        view.txt_updateproduct_barcode.setText(args.currentItem.productCode)
+        view.txt_updateproduct_cname.setText(args.currentItem.productCompany)
+        view.txt_updateproduct_name.setText(args.currentItem.productName)
+        view.txt_updateproduct_ptype.setText(args.currentItem.productType)
+        view.txt_updateproduct_pprice.setText(args.currentItem.productPrice.toString())
 
         setHasOptionsMenu(true)
         return view

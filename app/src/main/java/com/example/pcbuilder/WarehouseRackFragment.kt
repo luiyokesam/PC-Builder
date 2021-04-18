@@ -1,5 +1,6 @@
 package com.example.pcbuilder
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcbuilder.adapter.StockInAdapter
 import com.example.pcbuilder.adapter.WarehouseAdapter
+import com.example.pcbuilder.data.Warehouse
 import com.example.pcbuilder.model.StockInModel
 import com.example.pcbuilder.model.WarehouseModel
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -36,16 +38,22 @@ class WarehouseRackFragment : Fragment() {
          }*/
 
         view.btn_a1.setOnClickListener{
-            getA1Rack()
+//            getA1Rack()
         }
 
         setUpRecyclerView(view.warehouse_rack_list)
         return view
     }
 
-    private fun getA1Rack(){
+//    Intent intent = new Intent(getBaseContext(), SignoutActivity.class);
+//    intent.putExtra("EXTRA_SESSION_ID", sessionId);
+//    startActivity(intent);
+//    -------
+//    String sessionId = getIntent().getStringExtra("EXTRA_SESSION_ID");
 
-    }
+//    private fun getA1Rack(): Warehouse {
+////        Intent intent = new Intent(context, )
+//    }
 
     private fun setUpRecyclerView(recyclerview: RecyclerView) {
         val query : Query = collectionReference;

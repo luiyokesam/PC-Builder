@@ -116,8 +116,8 @@
             android:id="@+id/action_itemListUpdateFragment_to_itemListFragment"
             app:destination="@id/itemListFragment" />
         <argument
-            android:name="id"
-            app:argType="string" />
+            android:name="currentItem"
+            app:argType="com.example.pcbuilder.data.Product" />
     </fragment>
     <fragment
         android:id="@+id/stockTransferFragment"
