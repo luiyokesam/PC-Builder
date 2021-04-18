@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
                 //room record
             }
             3 -> {
-                findNavController().navigate(R.id.action_nav_home_to_productFragment)
+                findNavController().navigate(R.id.action_nav_home_to_itemListFragment)
             }
             4 -> {
                 findNavController().navigate(R.id.action_nav_home_to_warehouseFragment)
