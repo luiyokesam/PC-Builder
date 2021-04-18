@@ -42,6 +42,7 @@ android {
 
 dependencies {
     implementation 'com.google.firebase:firebase-database:19.7.0'
+    implementation 'com.google.firebase:firebase-firestore:22.1.2'
     def lifecycle_version = "2.3.0"
     //lifecycle + view model implementation
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
@@ -87,15 +88,14 @@ dependencies {
     // FirebaseUI for Cloud Firestore
     implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
 
-    def lifecycle_versions = "2.3.0"
+// ViewModel
     def nav_version = "2.3.4"
     def recyclerview_version = "1.1.0"
     def material_version = "1.4.0-alpha01"
-
-// ViewModel
-    implementation "android.arch.lifecycle:extensions:$lifecycle_versions"
+    // ViewModel
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
     // LiveData
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_versions"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
