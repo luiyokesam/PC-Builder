@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions' //android view control (auto ask to add layout)
     id 'kotlin-kapt' // add
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
