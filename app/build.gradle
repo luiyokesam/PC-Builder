@@ -87,6 +87,7 @@ dependencies {
 
     // FirebaseUI for Cloud Firestore
     implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:22.1.2'
 
 // ViewModel
     def nav_version = "2.3.4"
