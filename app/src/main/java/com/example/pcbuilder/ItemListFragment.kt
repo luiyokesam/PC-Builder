@@ -22,8 +22,7 @@ class ItemListFragment : Fragment() {
     private val collectionReference: CollectionReference = db.collection("products")
     var itemListAdapter : ItemListAdapter? =null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_item_list, container, false)
 
