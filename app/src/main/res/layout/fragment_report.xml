@@ -46,8 +46,10 @@
             android:layout_marginEnd="32dp"
             android:text="Generate"
             app:icon="@drawable/ic_report"
+            app:backgroundTint="@android:color/holo_blue_bright"
+            android:textSize="18sp"
             app:iconGravity="textEnd"
-            app:iconSize="30dp"
+            app:iconSize="35dp"
             app:iconTint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +76,6 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="18sp" />
-
         </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

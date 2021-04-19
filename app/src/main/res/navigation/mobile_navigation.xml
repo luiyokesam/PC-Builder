@@ -188,7 +188,7 @@
     <fragment
         android:id="@+id/warehouseRackTransferFragment"
         android:name="com.example.pcbuilder.WarehouseRackTransferFragment"
-        android:label="fragment_warehouse_rack_transfer"
+        android:label="Warehouse Rack Transfer"
         tools:layout="@layout/fragment_warehouse_rack_transfer" >
         <action
             android:id="@+id/action_warehouseRackTransferFragment_to_warehouseRackFragment2"

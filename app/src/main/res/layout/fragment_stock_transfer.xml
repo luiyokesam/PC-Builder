@@ -78,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
+                android:enabled="false"
                 android:fontFamily="@font/viga"
                 android:hint="Product Barcode"
                 android:textSize="18sp" />
@@ -103,6 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
+                android:enabled="false"
                 android:fontFamily="@font/viga"
                 android:hint="Date"
                 android:textSize="18sp" />
@@ -128,6 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
+                android:enabled="false"
                 android:fontFamily="@font/viga"
                 android:hint="Quantity"
                 android:textSize="18sp" />

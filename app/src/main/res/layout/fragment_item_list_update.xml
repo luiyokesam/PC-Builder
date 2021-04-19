@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
+                android:enabled="false"
                 android:fontFamily="@font/viga"
                 android:hint="Product Barcode"
                 android:inputType="number"
