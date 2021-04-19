@@ -129,10 +129,8 @@
         tools:layout="@layout/fragment_stock_transfer" >
         <action
             android:id="@+id/action_stockTransferFragment_to_stockInFragment"
-            app:destination="@id/stockInFragment" />
-        <action
-            android:id="@+id/action_stockTransferFragment_to_warehouseFragment"
-            app:destination="@id/warehouseFragment" />
+            app:destination="@id/stockInFragment"
+            app:popUpToInclusive="true" />
         <argument
             android:name="currentStockIn"
             app:argType="com.example.pcbuilder.data.StockIn" />
@@ -145,6 +143,9 @@
         <action
             android:id="@+id/action_warehouseRackFragment_to_warehouseFragment"
             app:destination="@id/warehouseFragment" />
+        <action
+            android:id="@+id/action_warehouseRackFragment_to_warehouseRackTransferFragment"
+            app:destination="@id/warehouseRackTransferFragment" />
     </fragment>
     <fragment
         android:id="@+id/stockOutFragment"
@@ -177,6 +178,18 @@
             app:destination="@id/stockOutFragment" />
         <argument
             android:name="currentWarehouse"
+            app:argType="com.example.pcbuilder.data.Warehouse" />
+    </fragment>
+    <fragment
+        android:id="@+id/warehouseRackTransferFragment"
+        android:name="com.example.pcbuilder.WarehouseRackTransferFragment"
+        android:label="fragment_warehouse_rack_transfer"
+        tools:layout="@layout/fragment_warehouse_rack_transfer" >
+        <action
+            android:id="@+id/action_warehouseRackTransferFragment_to_warehouseRackFragment2"
+            app:destination="@id/warehouseRackFragment" />
+        <argument
+            android:name="currentRack"
             app:argType="com.example.pcbuilder.data.Warehouse" />
     </fragment>
 </navigation>

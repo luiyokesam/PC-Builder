@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             //viewModel = sharedViewModel bind in xml
-            homeFragment = this@HomeFragment //bind fragment in xml
+            homeFragment = this@HomeFragment
         }
     }
 
