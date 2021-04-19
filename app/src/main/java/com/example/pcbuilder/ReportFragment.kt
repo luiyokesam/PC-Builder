@@ -17,6 +17,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class ReportFragment : Fragment() {
@@ -44,17 +46,28 @@ class ReportFragment : Fragment() {
 
     private fun retrieveReport() = CoroutineScope(Dispatchers.IO).launch {
         val rackID = txt_report_search.text.toString()
+        val simpleDateFormat = SimpleDateFormat("h:mm a")
+        val simpleDateFormat2 = SimpleDateFormat("EEE, MMM d, ''yy")
+        val currentDateAndTime: String = simpleDateFormat.format(Date())
+        val currentDateAndTime2: String = simpleDateFormat2.format(Date())
         try {
             val querySnapshot = reportCollectionRef
                 .whereEqualTo("rackid", rackID)
                 .get()
                 .await()
             val sb = StringBuilder()
-            sb.append("report\n")
+            sb.append("------------------------------------------------------------------------\n")
+            sb.append("Report\n")
+            sb.append("------------------------------------------------------------------------\n")
+            sb.append("Date: ${currentDateAndTime}\t\t\t\t\tTime: ${currentDateAndTime2}\n")
+            sb.append("------------------------------------------------------------------------\n")
+            sb.append("Product Code \t\t\t\t\t Date StockIn \t\t\t\t\t Qty\n")
+            sb.append("------------------------------------------------------------------------\n")
             for(document in querySnapshot.documents) {
                 val warehouse = document.toObject<Warehouse>()
                 if (warehouse != null) {
-                    sb.append("${warehouse.productCode} \t ${warehouse.inQuantity} \t ${warehouse.inDate}\n")
+                    sb.append("${warehouse.productCode} \t\t\t\t\t\t ${warehouse.inQuantity} \t\t\t\t\t\t ${warehouse.inDate}\n")
+                    sb.append("________________________________________________________________________\n")
                 }
             }
             withContext(Dispatchers.Main) {

@@ -60,6 +60,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
+            android:fillViewport="true"
+            android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_report_generate"
             tools:layout_editor_absoluteX="66dp">
@@ -69,6 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Report Data"
+                android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="18sp" />
 
