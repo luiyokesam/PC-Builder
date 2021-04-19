@@ -35,7 +35,6 @@
             android:layout_marginStart="8dp"
             android:backgroundTint="@color/teal_200"
             android:ems="10"
-            android:inputType="number"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/textView12"
             app:layout_constraintStart_toEndOf="@+id/textView12"
