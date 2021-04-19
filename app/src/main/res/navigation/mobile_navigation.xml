@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_nav_home_to_stockOutFragment"
             app:destination="@id/stockOutFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_reportFragment"
+            app:destination="@id/reportFragment" />
     </fragment>
 
     <fragment
@@ -150,6 +153,15 @@
         tools:layout="@layout/fragment_stock_out">
         <action
             android:id="@+id/action_stockOutFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.example.pcbuilder.ReportFragment"
+        android:label="Rack Report"
+        tools:layout="@layout/fragment_report" >
+        <action
+            android:id="@+id/action_reportFragment_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
 </navigation>

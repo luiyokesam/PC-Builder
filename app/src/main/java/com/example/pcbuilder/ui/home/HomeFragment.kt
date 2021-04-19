@@ -52,7 +52,7 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(R.id.action_nav_home_to_stockInFragment)
             }
             2 -> {
-                //room record
+                findNavController().navigate(R.id.action_nav_home_to_stockOutFragment)
             }
             3 -> {
                 findNavController().navigate(R.id.action_nav_home_to_itemListFragment)
@@ -64,7 +64,7 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(R.id.action_nav_home_to_userProfileFragment)
             }
             6 -> {
-                //housekeeping
+                findNavController().navigate(R.id.action_nav_home_to_reportFragment)
             }
         }
     }
