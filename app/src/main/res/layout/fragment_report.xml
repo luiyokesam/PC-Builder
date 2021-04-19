@@ -14,13 +14,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="32dp"
             android:backgroundTint="@color/teal_200"
-            android:inputType="textPersonName"
             android:ems="10"
+            android:inputType="textPersonName"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/textView16"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView16"
             app:layout_constraintTop_toTopOf="@+id/textView16" />
 
@@ -58,15 +56,14 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
+            android:fillViewport="true"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            android:fillViewport="true"
-            android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_report_generate"
-            tools:layout_editor_absoluteX="66dp">
+            app:layout_constraintTop_toBottomOf="@+id/btn_report_generate">
 
             <TextView
                 android:id="@+id/txt_report_data"
@@ -77,6 +74,16 @@
                 android:textColor="@android:color/white"
                 android:textSize="18sp" />
         </ScrollView>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_report_search"
+            app:layout_constraintTop_toTopOf="@+id/txt_report_search"
+            app:srcCompat="@drawable/ic_scanner" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

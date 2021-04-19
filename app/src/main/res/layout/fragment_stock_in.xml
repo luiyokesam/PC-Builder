@@ -33,13 +33,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="32dp"
             android:backgroundTint="@color/teal_200"
             android:ems="10"
             android:inputType="number"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/textView12"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView12"
             app:layout_constraintTop_toTopOf="@+id/textView12" />
 
@@ -67,6 +65,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:rippleColor="@color/white"
             app:srcCompat="@drawable/ic_add_float" />
+
+        <ImageButton
+            android:id="@+id/btn_stockin_scan"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_stockin_search"
+            app:layout_constraintTop_toTopOf="@+id/txt_stockin_search"
+            app:srcCompat="@drawable/ic_scanner" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
