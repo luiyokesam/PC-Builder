@@ -21,16 +21,16 @@ class StockOutAdapter(options: FirestoreRecyclerOptions<StockOutModel>) :
     }
 
     override fun onBindViewHolder(holder: StockOutAdapterVH, position: Int, model: StockOutModel) {
-        holder.outrackid.text = model.productCode
+        holder.outrackid.text = model.rackid
         holder.outbarcode.text = model.productCode
         holder.outquantity.text = model.outQuantity
-        holder.outdate.text = model.outDate
+        holder.outdate.text = model.productCode
 
-        holder.itemView.warehouse_rowlayout.setOnClickListener{
-            val currentstockout = StockOut(holder.outrackid.text as String, holder.outbarcode.text as String, holder.outquantity.text as String, holder.outdate.text as String)
-            val action = StockOutFragmentDirections.actionStockOutFragmentToStockOutTransferFragment(currentstockout)
-            holder.itemView.findNavController().navigate(action)
-        }
+//        holder.itemView.warehouse_rowlayout.setOnClickListener{
+//            val currentstockout = StockOut(holder.outrackid.text as String, holder.outbarcode.text as String, holder.outquantity.text as String, holder.outdate.text as String)
+//            val action = StockOutFragmentDirections.actionStockOutFragmentToStockOutTransferFragment(currentstockout)
+//            holder.itemView.findNavController().navigate(action)
+//        }
     }
 
     class StockOutAdapterVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -40,3 +40,4 @@ class StockOutAdapter(options: FirestoreRecyclerOptions<StockOutModel>) :
         var outdate = itemView.txt_rv_warehouse_date
     }
 }
+

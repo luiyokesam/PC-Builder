@@ -6,7 +6,10 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcbuilder.R
+import com.example.pcbuilder.StockInFragmentDirections
+import com.example.pcbuilder.StockOutFragmentDirections
 import com.example.pcbuilder.StockTransferFragmentDirections
+import com.example.pcbuilder.data.Warehouse
 import com.example.pcbuilder.model.WarehouseModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -28,13 +31,11 @@ class WarehouseAdapter(options: FirestoreRecyclerOptions<WarehouseModel>) :
         holder.transquantity.text = model.inQuantity
         holder.transdate.text = model.inDate
 
-//        holder.itemView.warehouse_rowlayout.setOnClickListener{
-////            val action = StockInFragmentDirections.actionItemListFragmentToItemListUpdateFragment(
-//            val action = StockTransferFragmentDirections.actionStockTransferFragmentToWarehouseFragment(
-//                model.rackid.toString()
-//            )
-//            holder.itemView.findNavController().navigate(action)
-//        }
+        holder.itemView.warehouse_rowlayout.setOnClickListener{
+            val currentware = Warehouse(holder.transrackid.text as String, holder.transbarcode.text as String, holder.transquantity.text as String, holder.transdate.text as String)
+            val action = StockOutFragmentDirections.actionStockOutFragmentToStockOutTransferFragment(currentware)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     class WarehouseAdapterVH(itemView: View) : RecyclerView.ViewHolder(itemView) {

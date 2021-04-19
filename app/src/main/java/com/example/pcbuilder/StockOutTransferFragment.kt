@@ -42,16 +42,12 @@ class StockOutTransferFragment : Fragment() {
 //            activity?.onBackPressed()
         }
 
-        view.txt_stockout_transfer_rackid.setText(args.currentStockOut.rackid)
-        view.txt_stockout_transfer_barcode.setText(args.currentStockOut.productCode)
-        view.txt_stockout_transfer_date.setText(args.currentStockOut.outDate)
-        view.txt_stockout_transfer_quantity.setText(args.currentStockOut.outQuantity)
+        view.txt_stockout_transfer_rackid.setText(args.currentWarehouse.rackid)
+        view.txt_stockout_transfer_barcode.setText(args.currentWarehouse.productCode)
+        view.txt_stockout_transfer_date.setText(args.currentWarehouse.inDate)
+        view.txt_stockout_transfer_quantity.setText(args.currentWarehouse.inQuantity)
 
         return view
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.delete_menu, menu)
     }
 
     private fun getOldWarehouse(): Warehouse {
