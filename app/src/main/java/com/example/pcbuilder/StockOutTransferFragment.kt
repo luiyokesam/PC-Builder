@@ -12,11 +12,14 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_stock_out_transfer.*
 import kotlinx.android.synthetic.main.fragment_stock_out_transfer.view.*
+import kotlinx.android.synthetic.main.fragment_warehouse_rack_transfer.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StockOutTransferFragment : Fragment() {
     private val warehouseCollectionRef = Firebase.firestore.collection("warehouse")
@@ -27,6 +30,10 @@ class StockOutTransferFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_stock_out_transfer, container, false)
+
+        val simpleDateFormat = SimpleDateFormat("EEE, MMM d, ''yy")
+        val currentDateAndTime: String = simpleDateFormat.format(Date())
+        view.txt_stockout_transfer_date.setText(currentDateAndTime)
 
         view.btn_stockout_transfer_transfer.setOnClickListener {
             val outrackid = txt_stockout_transfer_rackid.text.toString()

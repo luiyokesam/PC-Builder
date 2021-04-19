@@ -14,6 +14,9 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_stock_out.view.*
+import kotlinx.android.synthetic.main.fragment_warehouse_rack_transfer.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StockOutFragment : Fragment() {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance();
