@@ -25,7 +25,7 @@ class WarehouseAdapter(options: FirestoreRecyclerOptions<WarehouseModel>) :
     override fun onBindViewHolder(holder: WarehouseAdapterVH, position: Int, model: WarehouseModel) {
         holder.transrackid.text = model.rackid
         holder.transbarcode.text = model.productCode
-        holder.transquantity.text = model.inQuantity.toString()
+        holder.transquantity.text = model.inQuantity
         holder.transdate.text = model.inDate
 
 //        holder.itemView.warehouse_rowlayout.setOnClickListener{

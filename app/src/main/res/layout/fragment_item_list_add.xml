@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
+                android:inputType="number"
                 android:fontFamily="@font/viga"
                 android:hint="Product Barcode"
                 android:textSize="18sp" />
@@ -53,6 +54,7 @@
                 android:id="@+id/txt_addproduct_pname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/viga"
                 android:hint="Product Name"
@@ -80,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/viga"
+                android:inputType="text"
                 android:hint="Company Name"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -105,6 +108,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/viga"
+                android:inputType="text"
                 android:hint="Product Type"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -130,6 +134,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/viga"
+                android:inputType="numberDecimal"
                 android:hint="Product Price"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>

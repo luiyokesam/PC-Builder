@@ -39,7 +39,7 @@ class ItemListUpdateFragment: Fragment() {
         view.txt_updateproduct_cname.setText(args.currentItem.productCompany)
         view.txt_updateproduct_name.setText(args.currentItem.productName)
         view.txt_updateproduct_ptype.setText(args.currentItem.productType)
-        view.txt_updateproduct_pprice.setText(args.currentItem.productPrice.toString())
+        view.txt_updateproduct_pprice.setText(args.currentItem.productPrice)
 
         setHasOptionsMenu(true)
         return view
@@ -72,7 +72,7 @@ class ItemListUpdateFragment: Fragment() {
             map["productType"] = pType
         }
         if (pPrice.isNotEmpty()){
-            map["productPrice"] = pPrice.toDouble()
+            map["productPrice"] = pPrice
         }
         return map
     }
@@ -86,20 +86,19 @@ class ItemListUpdateFragment: Fragment() {
         if (productQuery.documents.isNotEmpty()){
             for(document in productQuery) {
                 try{
-                    productCollectionRef.document(document.id).set(
-                        newPersonMap,
-                        SetOptions.merge()
-                    ).await()
+                    productCollectionRef.document(document.id).set(newPersonMap, SetOptions.merge()).await()
+                    Toast.makeText(activity, "Data update failed", Toast.LENGTH_SHORT).show()
+                    activity?.onBackPressed()
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(activity, "Successfully Update data", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Successfully update data", Toast.LENGTH_SHORT).show()
                         activity?.onBackPressed()
                     }
                 }
             }
         }else{
             withContext(Dispatchers.Main){
-                Toast.makeText(activity, "Please fill out all fields.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Please fill out all fields", Toast.LENGTH_SHORT).show()
             }
         }
     }

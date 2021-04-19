@@ -22,11 +22,6 @@ class ItemListFragment : Fragment() {
     private val collectionReference: CollectionReference = db.collection("products")
     var itemListAdapter : ItemListAdapter? =null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -40,7 +35,6 @@ class ItemListFragment : Fragment() {
     }
 
     private fun setUpRecyclerView(recyclerview: RecyclerView) {
-
         val query : Query = collectionReference;
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<ItemLIstModel> = FirestoreRecyclerOptions.Builder<ItemLIstModel>()
             .setQuery(query, ItemLIstModel::class.java)

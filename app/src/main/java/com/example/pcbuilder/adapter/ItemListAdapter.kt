@@ -25,7 +25,7 @@ class ItemListAdapter(options: FirestoreRecyclerOptions<ItemLIstModel>) :
         holder.pro_Name.text = model.productName
         holder.pro_Company.text = model.productCompany
         holder.pro_Type.text = model.productType
-        holder.pro_Price.text = model.productPrice.toString()
+        holder.pro_Price.text = model.productPrice
 
         holder.itemView.list_item_row.setOnClickListener{
             val currentprod = Product(holder.pro_Code.text as String, holder.pro_Name.text as String, holder.pro_Company.text as String, holder.pro_Type.text as String, holder.pro_Price.text as String)

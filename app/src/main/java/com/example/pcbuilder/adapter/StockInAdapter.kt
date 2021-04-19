@@ -22,7 +22,7 @@ class StockInAdapter(options: FirestoreRecyclerOptions<StockInModel>) :
 
     override fun onBindViewHolder(holder: StockInAdapterVH, position: Int, model: StockInModel) {
         holder.inbarcode.text = model.productCode
-        holder.inquantity.text = model.inQuantity.toString()
+        holder.inquantity.text = model.inQuantity
         holder.indate.text = model.inDate
 
         holder.itemView.stockin_rowlayout.setOnClickListener{
