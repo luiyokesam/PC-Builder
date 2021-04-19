@@ -46,6 +46,7 @@ class ReportFragment : Fragment() {
 
     private fun retrieveReport() = CoroutineScope(Dispatchers.IO).launch {
         val rackID = txt_report_search.text.toString()
+        var i = 0
         val simpleDateFormat = SimpleDateFormat("h:mm a")
         val simpleDateFormat2 = SimpleDateFormat("EEE, MMM d, ''yy")
         val currentDateAndTime: String = simpleDateFormat.format(Date())
@@ -68,8 +69,10 @@ class ReportFragment : Fragment() {
                 if (warehouse != null) {
                     sb.append("${warehouse.productCode} \t\t\t\t\t\t ${warehouse.inQuantity} \t\t\t\t\t\t ${warehouse.inDate}\n")
                     sb.append("________________________________________________________________________\n")
+                    i = i+1
                 }
             }
+            sb.append("Total Item : ${i} \n")
             withContext(Dispatchers.Main) {
                 txt_report_data.text = sb.toString()
             }

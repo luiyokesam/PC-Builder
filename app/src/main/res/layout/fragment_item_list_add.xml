@@ -9,6 +9,18 @@
         android:layout_height="match_parent"
         android:background="@drawable/background_test">
 
+        <ImageButton
+            android:id="@+id/btn_NewProduct_scan"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/white"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_scanner" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout3"
             android:layout_width="0dp"
@@ -29,7 +41,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
-                android:inputType="number"
                 android:fontFamily="@font/viga"
                 android:hint="Product Barcode"
                 android:textSize="18sp" />
