@@ -68,12 +68,12 @@ class ReportFragment : Fragment() {
             sb.append("------------------------------------------------------------------------\n")
             sb.append("Date: ${currentDateAndTime}\t\t\t\t\tTime: ${currentDateAndTime2}\n")
             sb.append("------------------------------------------------------------------------\n")
-            sb.append("Product Code \t\t\t\t\t Date StockIn \t\t\t\t\t Qty\n")
-            sb.append("------------------------------------------------------------------------\n")
             for(document in querySnapshot.documents) {
                 val warehouse = document.toObject<Warehouse>()
                 if (warehouse != null) {
-                    sb.append("${warehouse.productCode} \t\t\t\t\t\t ${warehouse.inQuantity} \t\t\t\t\t\t ${warehouse.inDate}\n")
+                    sb.append("Product Code : ${warehouse.productCode} \n")
+                    sb.append("Quantity : ${warehouse.inQuantity}\n")
+                    sb.append("Date StockIn : ${warehouse.inDate}\n")
                     sb.append("________________________________________________________________________\n")
                     i = i+1
                 }
