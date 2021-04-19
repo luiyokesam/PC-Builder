@@ -125,7 +125,7 @@
     <fragment
         android:id="@+id/stockTransferFragment"
         android:name="com.example.pcbuilder.StockTransferFragment"
-        android:label="Stock Transfer"
+        android:label="Stock-In Transfer"
         tools:layout="@layout/fragment_stock_transfer" >
         <action
             android:id="@+id/action_stockTransferFragment_to_stockInFragment"
@@ -149,7 +149,7 @@
     <fragment
         android:id="@+id/stockOutFragment"
         android:name="com.example.pcbuilder.StockOutFragment"
-        android:label="Stock Out"
+        android:label="Stock-Out"
         tools:layout="@layout/fragment_stock_out">
         <action
             android:id="@+id/action_stockOutFragment_to_nav_home"
@@ -170,13 +170,13 @@
     <fragment
         android:id="@+id/stockOutTransferFragment"
         android:name="com.example.pcbuilder.StockOutTransferFragment"
-        android:label="fragment_stock_out_transfer"
+        android:label="Stock-Out Details"
         tools:layout="@layout/fragment_stock_out_transfer" >
         <action
             android:id="@+id/action_stockOutTransferFragment_to_stockOutFragment"
             app:destination="@id/stockOutFragment" />
         <argument
-            android:name="currentStockOut"
-            app:argType="com.example.pcbuilder.data.StockOut" />
+            android:name="currentWarehouse"
+            app:argType="com.example.pcbuilder.data.Warehouse" />
     </fragment>
 </navigation>

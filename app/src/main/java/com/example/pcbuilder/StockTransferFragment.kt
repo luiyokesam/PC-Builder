@@ -49,10 +49,6 @@ class StockTransferFragment : Fragment() {
         return view
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.delete_menu, menu)
-    }
-
     private fun getOldStockIn(): StockIn {
         val pcode = txt_stockin_transfer_barcode.text.toString()
 
