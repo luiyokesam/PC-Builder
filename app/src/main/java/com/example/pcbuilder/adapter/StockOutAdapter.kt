@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcbuilder.R
-import com.example.pcbuilder.StockInFragmentDirections
+import com.example.pcbuilder.StockOutFragmentDirections
 import com.example.pcbuilder.data.StockOut
 import com.example.pcbuilder.model.StockOutModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import kotlinx.android.synthetic.main.recyclerview_stockin.view.*
+import kotlinx.android.synthetic.main.recyclerview_warehouse.view.*
 
 class StockOutAdapter(options: FirestoreRecyclerOptions<StockOutModel>) :
     FirestoreRecyclerAdapter<StockOutModel, StockOutAdapter.StockOutAdapterVH>(options) {
@@ -21,20 +21,22 @@ class StockOutAdapter(options: FirestoreRecyclerOptions<StockOutModel>) :
     }
 
     override fun onBindViewHolder(holder: StockOutAdapterVH, position: Int, model: StockOutModel) {
-//        holder.outbarcode.text = model.productCode
-//        holder.outquantity.text = model.outQuantity
-//        holder.outdate.text = model.outDate
-//
-//        holder.itemView.stockin_rowlayout.setOnClickListener{
-//            val currentstockout = StockOut(holder.inbarcode.text as String, holder.outQuantity.text as String, holder.outDate.text as String)
-//            val action = StockOutFragmentDirections.actionStockInFragmentToStockTransferFragment(currentstockout)
-//            holder.itemView.findNavController().navigate(action)
-//        }
+        holder.outrackid.text = model.productCode
+        holder.outbarcode.text = model.productCode
+        holder.outquantity.text = model.outQuantity
+        holder.outdate.text = model.outDate
+
+        holder.itemView.warehouse_rowlayout.setOnClickListener{
+            val currentstockout = StockOut(holder.outrackid.text as String, holder.outbarcode.text as String, holder.outquantity.text as String, holder.outdate.text as String)
+            val action = StockOutFragmentDirections.actionStockOutFragmentToStockOutTransferFragment(currentstockout)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     class StockOutAdapterVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var inbarcode = itemView.txt_rv_stockin_barcode
-        var inquantity = itemView.txt_rv_stockin_quantity
-        var indate = itemView.txt_rv_stockin_date
+        var outrackid = itemView.txt_rv_warehouse_rackid
+        var outbarcode = itemView.txt_rv_warehouse_barcode
+        var outquantity = itemView.txt_rv_warehouse_quantity
+        var outdate = itemView.txt_rv_warehouse_date
     }
 }

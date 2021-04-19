@@ -17,7 +17,6 @@ import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_item_list.view.*
 
 class ItemListFragment : Fragment() {
-
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val collectionReference: CollectionReference = db.collection("products")
     var itemListAdapter : ItemListAdapter? =null
@@ -30,7 +29,6 @@ class ItemListFragment : Fragment() {
         view.add_ProductButton.setOnClickListener { Navigation.findNavController(view).navigate(R.id.itemListAddFragment) }
 
         setUpRecyclerView(view.recycler_view_products)
-
         return view
     }
 
@@ -55,5 +53,4 @@ class ItemListFragment : Fragment() {
         super.onDestroy()
         itemListAdapter!!.stopListening()
     }
-
 }
