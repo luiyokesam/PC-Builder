@@ -34,7 +34,6 @@ class UserProfileFragment : Fragment() {
         //create view with inflated fragmentBinding
 
         fragmentBinding.btnUserprofileReset.setOnClickListener { resetpassword() }
-        fragmentBinding.btnUserprofileLogout.setOnClickListener { logout(null) }
 
         return fragmentBinding.root
     }
