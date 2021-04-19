@@ -30,6 +30,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.lang.StringBuilder
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StockInDetailsFragment : Fragment() {
     private var count:Int = 0
@@ -45,6 +47,10 @@ class StockInDetailsFragment : Fragment() {
 
         view.btn_stockin_addqty.setOnClickListener{ addQuantity() }
         view.btn_stockin_minusqty.setOnClickListener{ minusQuantity() }
+
+        val simpleDateFormat = SimpleDateFormat("EEE, MMM d, ''yy")
+        val currentDateAndTime: String = simpleDateFormat.format(Date())
+        view.txt_stockin_date.setText(currentDateAndTime)
 
         view.btn_stockin_add.setOnClickListener {
             val inbarcode = txt_stockin_code.text.toString()

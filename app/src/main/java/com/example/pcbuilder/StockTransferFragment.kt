@@ -1,7 +1,11 @@
 package com.example.pcbuilder
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -10,6 +14,8 @@ import com.example.pcbuilder.data.StockIn
 import com.example.pcbuilder.data.Warehouse
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.zxing.integration.android.IntentIntegrator
+import kotlinx.android.synthetic.main.fragment_item_list_add.*
 import kotlinx.android.synthetic.main.fragment_stock_transfer.*
 import kotlinx.android.synthetic.main.fragment_stock_transfer.view.*
 import kotlinx.coroutines.CoroutineScope
@@ -96,6 +102,52 @@ class StockTransferFragment : Fragment() {
             withContext(Dispatchers.Main) {
                 Toast.makeText(activity, "Please fill out all fields.", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    lateinit var btnStockTransferBarcode: ImageButton
+    lateinit var txtStockTransferRackId: TextView
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        btnStockTransferBarcode = view.findViewById(R.id.btn_stockin_transfer_scan)
+        txtStockTransferRackId = view.findViewById(R.id.txt_stockin_transfer_rackid)
+
+
+        btnStockTransferBarcode.setOnClickListener {
+            val intentIntegrator = IntentIntegrator.forSupportFragment(this)
+            intentIntegrator.setBeepEnabled(false)
+            intentIntegrator.setCameraId(0)
+            intentIntegrator.setPrompt("SCAN")
+            intentIntegrator.setBarcodeImageEnabled(false)
+            intentIntegrator.initiateScan()
+
+
+
+        }
+    }
+
+    override fun onActivityResult(
+            requestCode: Int,
+            resultCode: Int,
+            data: Intent?
+    ) {
+        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if (result != null) {
+            if (result.contents == null) {
+                Toast.makeText(context, "cancelled", Toast.LENGTH_SHORT).show()
+            } else {
+                Log.d("Fragment", "Scanned from Fragment")
+                Toast.makeText(context, "Scanned -> " + result.contents, Toast.LENGTH_SHORT)
+                        .show()
+
+                txtStockTransferRackId.text = result.contents
+
+                Log.d("Fragment", "$result")
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 }
