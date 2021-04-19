@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.pcbuilder.data.Product
 import com.example.pcbuilder.data.StockIn
@@ -41,6 +42,8 @@ class StockTransferFragment : Fragment() {
 
             val stockin = getOldStockIn()
             deleteStockIn(stockin)
+            findNavController().navigate(R.id.action_stockTransferFragment_to_stockInFragment)
+//            activity?.onBackPressed()
         }
 
         view.txt_stockin_transfer_barcode.setText(args.currentStockIn.productCode)
@@ -53,14 +56,6 @@ class StockTransferFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.delete_menu, menu)
     }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        if (item.itemId == R.id.menu_delete){
-//            val product = getOldProduct()
-//            deleteProduct(product)
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
 
     private fun getOldStockIn(): StockIn {
         val pcode = txt_stockin_transfer_barcode.text.toString()
@@ -85,9 +80,7 @@ class StockTransferFragment : Fragment() {
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(activity, "Data deleted", Toast.LENGTH_SHORT).show()
-//                        view.findViewById<>()
-
-                        activity?.onBackPressed()
+//                        activity?.onBackPressed()
                     }
                 }
             }
@@ -104,6 +97,7 @@ class StockTransferFragment : Fragment() {
             warehouseCollectionRef.add(warehouse).await()
             withContext(Dispatchers.Main) {
                 Toast.makeText(activity, "Successfully save data", Toast.LENGTH_SHORT).show()
+//                findNavController().navigate(R.id.action_stockTransferFragment_to_stockInFragment)
                 activity?.onBackPressed()
             }
         } catch (e: Exception) {

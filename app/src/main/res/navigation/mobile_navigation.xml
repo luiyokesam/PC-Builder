@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_nav_home_to_itemListFragment"
             app:destination="@id/itemListFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_stockOutFragment"
+            app:destination="@id/stockOutFragment" />
     </fragment>
 
     <fragment
@@ -139,5 +142,14 @@
         <action
             android:id="@+id/action_warehouseRackFragment_to_warehouseFragment"
             app:destination="@id/warehouseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stockOutFragment"
+        android:name="com.example.pcbuilder.StockOutFragment"
+        android:label="Stock Out"
+        tools:layout="@layout/fragment_stock_out">
+        <action
+            android:id="@+id/action_stockOutFragment_to_nav_home"
+            app:destination="@id/nav_home" />
     </fragment>
 </navigation>
