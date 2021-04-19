@@ -15,6 +15,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_item_list.view.*
+import kotlinx.coroutines.tasks.await
 
 class ItemListFragment : Fragment() {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -33,7 +34,8 @@ class ItemListFragment : Fragment() {
     }
 
     private fun setUpRecyclerView(recyclerview: RecyclerView) {
-        val query : Query = collectionReference;
+        //val query : Query = collectionReference.whereEqualTo("productCode", "121")
+        val query : Query = collectionReference
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<ItemLIstModel> = FirestoreRecyclerOptions.Builder<ItemLIstModel>()
             .setQuery(query, ItemLIstModel::class.java)
             .build();
