@@ -59,6 +59,7 @@ class StockInDetailsFragment : Fragment() {
 
     private fun saveStockIn(stockin: StockIn) = CoroutineScope(Dispatchers.IO).launch {
         try{
+//            stockinCollectionRef.document(stockin.productCode).set(stockin)
             stockinCollectionRef.add(stockin).await()
             withContext(Dispatchers.Main) {
                 Toast.makeText(activity, "Successfully save data", Toast.LENGTH_SHORT).show()

@@ -98,7 +98,7 @@ class StockTransferFragment : Fragment() {
             withContext(Dispatchers.Main) {
                 Toast.makeText(activity, "Successfully save data", Toast.LENGTH_SHORT).show()
 //                findNavController().navigate(R.id.action_stockTransferFragment_to_stockInFragment)
-                activity?.onBackPressed()
+//                activity?.onBackPressed()
             }
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
