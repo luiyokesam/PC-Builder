@@ -154,6 +154,9 @@
         <action
             android:id="@+id/action_stockOutFragment_to_nav_home"
             app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_stockOutFragment_to_stockOutTransferFragment"
+            app:destination="@id/stockOutTransferFragment" />
     </fragment>
     <fragment
         android:id="@+id/reportFragment"
@@ -163,5 +166,17 @@
         <action
             android:id="@+id/action_reportFragment_to_nav_home"
             app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/stockOutTransferFragment"
+        android:name="com.example.pcbuilder.StockOutTransferFragment"
+        android:label="fragment_stock_out_transfer"
+        tools:layout="@layout/fragment_stock_out_transfer" >
+        <action
+            android:id="@+id/action_stockOutTransferFragment_to_stockOutFragment"
+            app:destination="@id/stockOutFragment" />
+        <argument
+            android:name="currentStockOut"
+            app:argType="com.example.pcbuilder.data.StockOut" />
     </fragment>
 </navigation>

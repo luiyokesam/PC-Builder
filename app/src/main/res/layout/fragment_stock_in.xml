@@ -45,6 +45,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/stock_in_list"
+            tools:listitem="@layout/recyclerview_stockin"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
@@ -68,4 +69,5 @@
             app:srcCompat="@drawable/ic_add_float" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

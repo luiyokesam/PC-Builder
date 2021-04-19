@@ -6,45 +6,46 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.pcbuilder.data.StockIn
+import com.example.pcbuilder.data.StockOut
 import com.example.pcbuilder.data.Warehouse
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_stock_transfer.*
-import kotlinx.android.synthetic.main.fragment_stock_transfer.view.*
+import kotlinx.android.synthetic.main.fragment_stock_out_transfer.*
+import kotlinx.android.synthetic.main.fragment_stock_out_transfer.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class StockTransferFragment : Fragment() {
-    private val stockinCollectionRef = Firebase.firestore.collection("stockin")
+class StockOutTransferFragment : Fragment() {
     private val warehouseCollectionRef = Firebase.firestore.collection("warehouse")
-    private val args by navArgs<StockTransferFragmentArgs>()
+    private val stockoutCollectionRef = Firebase.firestore.collection("stockout")
+    private val args by navArgs<StockOutTransferFragmentArgs>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_stock_transfer, container, false)
+        val view = inflater.inflate(R.layout.fragment_stock_out_transfer, container, false)
 
-        view.btn_stockin_transfer_transfer.setOnClickListener {
-            val transrackid = txt_stockin_transfer_rackid.text.toString()
-            val transbarcode = txt_stockin_transfer_barcode.text.toString()
-            val transindate = txt_stockin_transfer_date.text.toString()
-            val transquantity = txt_stockin_transfer_quantity.text.toString()
-            val warehouse = Warehouse(transrackid, transbarcode, transquantity, transindate)
-            saveStockTransfer(warehouse)
+        view.btn_stockout_transfer_transfer.setOnClickListener {
+            val outrackid = txt_stockout_transfer_rackid.text.toString()
+            val outbarcode = txt_stockout_transfer_barcode.text.toString()
+            val outdate = txt_stockout_transfer_date.text.toString()
+            val outquantity = txt_stockout_transfer_quantity.text.toString()
+            val stockout = StockOut(outrackid, outbarcode, outdate, outquantity)
+            saveStockOutTransfer(stockout)
 
-            val stockin = getOldStockIn()
-            deleteStockIn(stockin)
-            findNavController().navigate(R.id.action_stockTransferFragment_to_stockInFragment)
+            val warehouse = getOldWarehouse()
+            deleteWarehouse(warehouse)
+            findNavController().navigate(R.id.action_stockOutTransferFragment_to_stockOutFragment)
 //            activity?.onBackPressed()
         }
 
-        view.txt_stockin_transfer_barcode.setText(args.currentStockIn.productCode)
-        view.txt_stockin_transfer_date.setText(args.currentStockIn.inQuantity)
-        view.txt_stockin_transfer_quantity.setText(args.currentStockIn.inQuantity)
+        view.txt_stockout_transfer_rackid.setText(args.currentStockOut.rackid)
+        view.txt_stockout_transfer_barcode.setText(args.currentStockOut.productCode)
+        view.txt_stockout_transfer_date.setText(args.currentStockOut.outDate)
+        view.txt_stockout_transfer_quantity.setText(args.currentStockOut.outQuantity)
 
         return view
     }
@@ -53,22 +54,24 @@ class StockTransferFragment : Fragment() {
         inflater.inflate(R.menu.delete_menu, menu)
     }
 
-    private fun getOldStockIn(): StockIn {
-        val pcode = txt_stockin_transfer_barcode.text.toString()
+    private fun getOldWarehouse(): Warehouse {
+        val rackid = txt_stockout_transfer_rackid.text.toString()
+        val pcode = txt_stockout_transfer_barcode.text.toString()
 
-        return StockIn(pcode)
+        return Warehouse(rackid, pcode)
     }
 
-    private fun deleteStockIn(stockin: StockIn) = CoroutineScope(Dispatchers.IO).launch {
-        val productQuery = stockinCollectionRef
-            .whereEqualTo("productCode", stockin.productCode)
+    private fun deleteWarehouse(warehouse: Warehouse) = CoroutineScope(Dispatchers.IO).launch {
+        val productQuery = warehouseCollectionRef
+            .whereEqualTo("rackid", warehouse.rackid)
+            .whereEqualTo("productCode", warehouse.productCode)
             .get()
             .await()
 
         if (productQuery.documents.isNotEmpty()){
             for(document in productQuery) {
                 try{
-                    stockinCollectionRef.document(document.id).delete().await()
+                    warehouseCollectionRef.document(document.id).delete().await()
                     Toast.makeText(activity, "Data delete failed", Toast.LENGTH_SHORT).show()
                     /*personCollectionRef.document(document.id).update(mapOf(
                         "firstName" to FieldValue.delete()
@@ -88,9 +91,9 @@ class StockTransferFragment : Fragment() {
         }
     }
 
-    private fun saveStockTransfer(warehouse: Warehouse) = CoroutineScope(Dispatchers.IO).launch {
+    private fun saveStockOutTransfer(stockout: StockOut) = CoroutineScope(Dispatchers.IO).launch {
         try{
-            warehouseCollectionRef.add(warehouse).await()
+            stockoutCollectionRef.add(stockout).await()
             withContext(Dispatchers.Main) {
                 Toast.makeText(activity, "Successfully save data", Toast.LENGTH_SHORT).show()
 //                findNavController().navigate(R.id.action_stockTransferFragment_to_stockInFragment)

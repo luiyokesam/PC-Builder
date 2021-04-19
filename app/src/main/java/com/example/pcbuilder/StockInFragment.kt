@@ -23,21 +23,11 @@ class StockInFragment : Fragment() {
     private val collectionReference: CollectionReference = db.collection("stockin");
     var stockinAdapter: StockInAdapter? = null;
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_stock_in, container, false)
 
-        view.btn_stockin_float.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_stockInFragment_to_stockInDetailsFragment)
-        }
-
-        // subscribeToRealtimeUpdate()
-        /* view.btnRetrieveData.setOnClickListener {
-             retrieveProduct()
-         }*/
+        view.btn_stockin_float.setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_stockInFragment_to_stockInDetailsFragment) }
 
         setUpRecyclerView(view.stock_in_list)
         return view
