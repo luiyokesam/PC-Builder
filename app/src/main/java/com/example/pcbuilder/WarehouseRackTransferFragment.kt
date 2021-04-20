@@ -46,8 +46,8 @@ class WarehouseRackTransferFragment : Fragment() {
 
         view.txt_warehouse_rack_transfer_rackid.setText(args.currentRack.rackid)
         view.txt_warehouse_rack_transfer_barcode.setText(args.currentRack.productCode)
-        view.txt_warehouse_rack_transfer_date.setText(args.currentRack.inQuantity)
-        view.txt_warehouse_rack_transfer_quantity.setText(args.currentRack.inDate)
+        view.txt_warehouse_rack_transfer_date.setText(args.currentRack.inDate)
+        view.txt_warehouse_rack_transfer_quantity.setText(args.currentRack.inQuantity)
 
         setHasOptionsMenu(true)
         return view
