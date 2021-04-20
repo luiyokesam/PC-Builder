@@ -34,7 +34,7 @@ class ItemListFragment : Fragment() {
 
     private fun setUpRecyclerView(recyclerview: RecyclerView) {
         //val query : Query = collectionReference.whereEqualTo("productCode", "121")
-        val query : Query = collectionReference
+        val query : Query = collectionReference.orderBy("productCode")
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<ItemLIstModel> = FirestoreRecyclerOptions.Builder<ItemLIstModel>()
             .setQuery(query, ItemLIstModel::class.java)
             .build();
