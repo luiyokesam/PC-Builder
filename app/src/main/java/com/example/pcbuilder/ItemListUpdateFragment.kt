@@ -30,9 +30,9 @@ class ItemListUpdateFragment: Fragment() {
         val view = inflater.inflate(R.layout.fragment_item_list_update, container, false)
 
         view.button_update.setOnClickListener {
-            val oldPerson = getOldProduct()
+            val oldProduct = getOldProduct()
             val newPersonMap = getNewProductMap()
-            updateProduct(oldPerson, newPersonMap)
+            updateProduct(oldProduct, newPersonMap)
         }
 
         view.txt_updateproduct_barcode.setText(args.currentItem.productCode)

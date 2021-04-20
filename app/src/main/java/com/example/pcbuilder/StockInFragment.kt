@@ -45,7 +45,7 @@ class StockInFragment : Fragment() {
     }
 
     private fun setUpRecyclerView(recyclerview: RecyclerView) {
-        val query : Query = collectionReference;
+        val query : Query = collectionReference.orderBy("productCode")
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<StockInModel> = FirestoreRecyclerOptions.Builder<StockInModel>()
             .setQuery(query, StockInModel::class.java)
             .build()
@@ -68,7 +68,6 @@ class StockInFragment : Fragment() {
 
     lateinit var btnStockBarcode: ImageButton
     lateinit var txtStockCode: TextView
-    lateinit var btnStockRefresh: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

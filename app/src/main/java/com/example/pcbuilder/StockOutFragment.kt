@@ -35,7 +35,7 @@ class StockOutFragment : Fragment() {
     }
 
     private fun setUpRecyclerView(recyclerview: RecyclerView) {
-        val query : Query = collectionReference
+        val query : Query = collectionReference.orderBy("productCode")
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<WarehouseModel> = FirestoreRecyclerOptions.Builder<WarehouseModel>()
             .setQuery(query, WarehouseModel::class.java)
             .build()
