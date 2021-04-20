@@ -122,18 +122,18 @@ class LoginFragment : Fragment() {
             if(currentUser.isEmailVerified){
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(intent)
-//                startActivity(Intent(this, DashBoardActivity::class.java))
 //                finish()
+//                startActivity(Intent(this, DashBoardActivity::class.java))
             }
             else {
                 Toast.makeText(context, "Please verify your email.",
                         Toast.LENGTH_SHORT).show()
             }
         }
-//        else {
-//            Toast.makeText(baseContext, "Authentication failed.",
-//                Toast.LENGTH_SHORT).show()
-////            updateUI(null)
-//        }
+        else {
+            Toast.makeText(context, "Authentication failed.",
+                Toast.LENGTH_SHORT).show()
+//            updateUI(null)
+        }
     }
 }

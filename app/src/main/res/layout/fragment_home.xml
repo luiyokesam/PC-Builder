@@ -36,7 +36,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.18" />
+            app:layout_constraintVertical_bias="0.17000002" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_home_stockout"
@@ -94,6 +94,7 @@
             app:layout_constraintEnd_toEndOf="@+id/btn_home_itemlist"
             app:layout_constraintStart_toStartOf="@+id/btn_home_itemlist"
             app:layout_constraintTop_toBottomOf="@+id/btn_home_itemlist" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.pcbuilder.databinding.FragmentUserProfileBinding
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -33,7 +34,9 @@ class UserProfileFragment : Fragment() {
         binding = fragmentBinding
         //create view with inflated fragmentBinding
 
-        fragmentBinding.btnUserprofileReset.setOnClickListener { resetpassword() }
+        fragmentBinding.btnUserprofileReset.setOnClickListener {
+            resetpassword()
+        }
 
         return fragmentBinding.root
     }
@@ -77,18 +80,20 @@ class UserProfileFragment : Fragment() {
                     user!!.updatePassword(txt_userprofile_newpassword.text.toString())
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    Toast.makeText(context, "Password Changed Successfully",
+                                    Toast.makeText(context, "Password changed successfully",
                                             Toast.LENGTH_SHORT).show()
+//                                    logout(null)
+                                    findNavController()?.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
+//                                    val intent = Intent(context, LoginActivity::class.java)
+//                                    startActivity(intent)
                                     auth.signOut()
-//                                    view?.findNavController()?.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
-                                    val intent = Intent(context, LoginActivity::class.java)
-                                    startActivity(intent)
                                 }
                             }
                 }
                 else{
                     Toast.makeText(context, "Re-Authentication failed.",
                             Toast.LENGTH_SHORT).show()
+//                    findNavController()?.navigate(R.id.action_nav_home_to_userProfileFragment)
                 }
             }
         }
