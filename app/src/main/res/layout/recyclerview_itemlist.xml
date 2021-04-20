@@ -40,10 +40,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_rv_addproduct_barcode"
-        android:layout_marginStart="32dp"
         android:fontFamily="@font/viga"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/txt_rv_addproduct_companyname"
+        app:layout_constraintStart_toStartOf="@+id/txt_rv_addproduct_rm"
         app:layout_constraintTop_toTopOf="@+id/txt_rv_addproduct_companyname"
         tools:text="ASUS Mouse" />
 
@@ -63,11 +62,12 @@
         android:id="@+id/txt_rv_addproduct_rm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/viga"
         android:text="RM"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/txt_rv_addproduct_productname"
+        app:layout_constraintStart_toEndOf="@+id/txt_rv_addproduct_producttype"
         app:layout_constraintTop_toBottomOf="@+id/txt_rv_addproduct_productname" />
 
     <TextView
