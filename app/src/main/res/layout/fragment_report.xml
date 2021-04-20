@@ -77,8 +77,8 @@
 
         <ImageButton
             android:id="@+id/btn_Scan_Report"
-            android:layout_width="33dp"
-            android:layout_height="33dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txt_report_search"
