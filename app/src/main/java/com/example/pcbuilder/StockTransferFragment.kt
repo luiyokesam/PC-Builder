@@ -49,7 +49,7 @@ class StockTransferFragment : Fragment() {
         }
 
         view.txt_stockin_transfer_barcode.setText(args.currentStockIn.productCode)
-        view.txt_stockin_transfer_date.setText(args.currentStockIn.inQuantity)
+        view.txt_stockin_transfer_date.setText(args.currentStockIn.inDate)
         view.txt_stockin_transfer_quantity.setText(args.currentStockIn.inQuantity)
 
         return view
